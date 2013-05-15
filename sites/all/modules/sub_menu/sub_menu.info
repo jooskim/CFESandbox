@@ -1,0 +1,3 @@
+name = Sub menu
+description = Takes the current page you're on and returns all the sublinks with the same parent
+core = 7.x

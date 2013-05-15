@@ -1,0 +1,3 @@
+name = Latest Blog
+description = Gets the latest blog post by Thomas or Doug
+core = 7.x

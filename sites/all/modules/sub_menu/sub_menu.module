@@ -1,0 +1,17 @@
+<?php
+
+function sub_menu_links($menu_name, $node) {
+  $page = db_query("SELECT mlid, plid FROM {menu_links} WHERE link_path = :node", array(':node' => $node))->fetchAssoc();
+  
+  if ($page['plid'] == 0) { // Top level link
+    $links = db_query("SELECT *  FROM {menu_links} LEFT JOIN {url_alias} ON {menu_links}.link_path = {url_alias}.source WHERE menu_name = :menu AND (plid = :pid OR mlid = :pid) ORDER BY depth ASC, weight ASC", array(':menu' => $menu_name, ':pid' => $page['mlid']))->fetchAllAssoc('mlid');
+  } else {
+    $links = db_query("SELECT *  FROM {menu_links} LEFT JOIN {url_alias} ON {menu_links}.link_path = {url_alias}.source WHERE menu_name = :menu AND (plid = :pid OR mlid = :pid) ORDER BY depth ASC, weight ASC", array(':menu' => $menu_name, ':pid' => $page['plid']))->fetchAllAssoc('mlid');
+  }
+                    
+  foreach ($links as &$link) {
+    $link->options = unserialize($link->options);
+  }
+  
+  return $links;
+}

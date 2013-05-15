@@ -1,0 +1,15 @@
+name = Center for Entrepreneurship
+description = Theme for UM Center for Entrepreneurship website
+core = 7.x
+engine = phptemplate
+
+regions[header] = Header
+regions[sidebar_first] = Right sidebar
+regions[content] = Content
+regions[footer] = Footer
+
+stylesheets[all][] = css/styles.css
+stylesheets[all][] = css/fonts.css
+
+features[] = name
+features[] = main_menu

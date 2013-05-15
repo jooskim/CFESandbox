@@ -1,0 +1,25 @@
+<?php
+
+function slideshow() {
+	
+	$slides = array();
+	
+	$query = "SELECT
+		`title`,
+		`subtitle`,
+		`photo`,
+		`thumbnail`,
+		`excerpt`,
+		`readmore`
+	FROM `cfe_slideshow`
+	ORDER BY `order` ASC
+	LIMIT 5";
+	$result = db_query($query);
+	while ($record = $result->fetchAssoc()) {
+		$slides[] = $record;
+	}
+	//echo sizeof($slides);
+	return $slides;
+}
+
+?>

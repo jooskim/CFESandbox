@@ -1,0 +1,4 @@
+name = Karma CRM
+description = A custom module to hook into Karma CRM
+core = 7.x
+package = Other

@@ -1,0 +1,31 @@
+<?php
+
+function karma_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'webform_client_form_86') {
+    dpm($form);
+    $form['#submit'][] = 'karma_form_submit_handler';
+  }
+}
+
+function karma_form_submit_handler($form, &$form_state) {
+  dpm($form_state['values']['submitted']);
+   $first_name = $form_state['values']['submitted'][2];
+   $last_name = $form_state['values']['submitted'][3];
+   $email = $form_state['values']['submitted'][4];
+   $city = $form_state['values']['submitted'][5];
+   $phone = $form_state['values']['submitted'][6];
+   $skype = $form_state['values']['submitted'][7];
+   $company = $form_state['values']['submitted'][14];
+   $position = $form_state['values']['submitted'][15];
+   $linkedin = $form_state['values']['submitted'][28];  
+
+$data = 'api_token=tD8wH8TgdcgpzBEbv17X&contact[first_name]='.$first_name.'&contact[last_name]='.$last_name.'&contact[secondary_emails][][email]='.$email.'&contact[secondary_emails][][secondary_email_type_id]=1&contact[addresses][][city]='.$city.'&contact[phone_numbers][][number]='.$phone.'&contact[phone_numbers][][phone_number_type_id]=1&contact[social_accounts][][name]='.$skype.'&contact[social_accounts][][social_account_type_id]=82&contact[title]='.$position.'&contact[company][name]='.$company.'&contact[secondary_websites][][url]='.$linkedin.'&contact[secondary_websites][][secondary_website_type_id]=3';
+  $result = drupal_http_request(
+    'https://api.karmacrm.com/api/v2/contacts.json',
+    array(
+	 'method' => 'POST',
+	 'data' => $data
+	)
+  );
+  dpm($result);
+}
