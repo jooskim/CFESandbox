@@ -64,7 +64,7 @@ h2 {
 h3 {
 	font-size: 1.2em !important;
 	margin: 0 !important;
-	padding: 0;
+	padding: 0px 0px 10px 0px;
 	font-weight: 300;
 }
 h4, .view-people .views-field-field-jobtitle {
