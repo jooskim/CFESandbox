@@ -43,15 +43,16 @@
 			$('html,body').animate({scrollTop: targetpos}, 'fast');
 		});
 		
-		
+		// Scroll down to the item upon clicking the corresponding item in the list view for every Person View page
 		$('a[class=scrollToTarget]').mouseup(function(){
 			var currentObj = $(this);
 			var currentObjName = currentObj.text();
 			var currentObjNameHyp = currentObjName.toLowerCase().replace(" ", "-");
 			var locOfSnippet = $('div span[class="field-content imgHeader"] a:contains("'+currentObjName+'")').position().top - 180;
 			$('html,body').animate({scrollTop: locOfSnippet}, 300);
-			//$('html,body').animate({'scrollTop': 100}, 300);
 		});
+		
+		
 	}); // ready
 	
 }(jQuery));

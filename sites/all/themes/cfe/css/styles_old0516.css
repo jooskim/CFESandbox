@@ -97,6 +97,8 @@ img.photo,
 .button a:visited,
 .view-entr407-bios .views-field-field-recording a:link,
 .view-entr407-videos .views-field-field-recording a:link,
+.view-resources .field-type-link-field a:link,
+.view-resources .views-field-field-url a:link,
 .view-people .views-field-view-node a:link {
 	-moz-box-shadow: 0 1px 6px 0 #666;
 	-webkit-box-shadow: 0 1px 6px 0 #666;
@@ -129,6 +131,8 @@ img.photo,
 .button:visited,
 .view-entr407-bios .views-field-field-recording a:hover,
 .view-entr407-videos .views-field-field-recording a:hover,
+.view-resources .field-type-link-field a:hover,
+.view-resources .views-field-field-url a:hover,
 .view-people .views-field-view-node a:hover {
 	color: #FFF;
 	font-weight: 700;
@@ -140,7 +144,9 @@ img.photo,
 .button a:hover,
 .view-home .views-row > a:last-child:hover,
 .view-home .views-row > a:last-child:active,
-.view-entr407-videos .views-field-field-recording a:hover {
+.view-entr407-videos .views-field-field-recording a:hover,
+.view-resources .field-type-link-field a:hover,
+.view-resources .views-field-field-url a:hover {
 	background: #024B96;
 	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#024B96', endColorstr='#0B06A3');
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#024B96), to(#0B06A3));
@@ -564,7 +570,6 @@ footer {
 	background: #ddd;
 	padding: 10px;
 }
-
 /* Sidebar styling starts here */
 #block-views-latest-event-block-1 h2 {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -577,7 +582,7 @@ footer {
 #block-views-latest-event-block-1 img {
 	width: 220px;
 }
-#block-views-latest-event-block-1 .newsItem .views-field-title {
+#block-views-latest-event-block-1 .newsItem views-field-title {
 	display: inline-block;
 	position: relative;
 	width: 220px;
@@ -593,6 +598,7 @@ footer {
 	width: 100%;
 }
 .view-news .views-row,
+.view-resources .views-row,
 .view-entr407-videos .views-row,
 .view-entr407-bios .views-row,
 .view-people .views-row{
@@ -630,6 +636,9 @@ footer {
 }
 .view-news .views-field {
 	margin: 10px 0;
+}
+.view-resources .views-row {
+	width: 30%;
 }
 .view-news .field-type-image,
 .node-entr407-recordings .field-type-image,
