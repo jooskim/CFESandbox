@@ -17,9 +17,17 @@ function karma_form_submit_handler($form, &$form_state) {
    $skype = $form_state['values']['submitted'][7];
    $company = $form_state['values']['submitted'][14];
    $position = $form_state['values']['submitted'][15];
-   $linkedin = $form_state['values']['submitted'][28];  
+   $linkedin = $form_state['values']['submitted'][28];
+   $uniqname = $form_state['values']['submitted'][46];
+   $industry = $form_state['values']['submitted'][20];
+   $expertise = $form_state['values']['submitted'][21];
+   $school = $form_state['values']['submitted'][9];
+   $degree = $form_state['values']['submitted'][10];
+   $major =  = $form_state['values']['submitted'][11];
+   $gradyear = $form_state['values']['submitted'][49];
 
-$data = 'api_token=tD8wH8TgdcgpzBEbv17X&contact[first_name]='.$first_name.'&contact[last_name]='.$last_name.'&contact[secondary_emails][][email]='.$email.'&contact[secondary_emails][][secondary_email_type_id]=1&contact[addresses][][city]='.$city.'&contact[phone_numbers][][number]='.$phone.'&contact[phone_numbers][][phone_number_type_id]=1&contact[social_accounts][][name]='.$skype.'&contact[social_accounts][][social_account_type_id]=82&contact[title]='.$position.'&contact[company][name]='.$company.'&contact[secondary_websites][][url]='.$linkedin.'&contact[secondary_websites][][secondary_website_type_id]=3';
+$data = 'api_token=tD8wH8TgdcgpzBEbv17X&contact[first_name]='.$first_name.'&contact[last_name]='.$last_name.'&contact[secondary_emails][][email]='.$email.'&contact[secondary_emails][][secondary_email_type_id]=1&contact[addresses][][city]='.$city.'&contact[phone_numbers][][number]='.$phone.'&contact[phone_numbers][][phone_number_type_id]=1&contact[social_accounts][][name]='.$skype.'&contact[social_accounts][][social_account_type_id]=82&contact[title]='.$position.'&contact[company][name]='.$company.'&contact[secondary_websites][][url]='.$linkedin.'
+&contact[secondary_websites][][secondary_website_type_id]=3&contact[field_values][][field_id]=84247&contact[field_values][][value]='.$uniqname.'&contact[field_values][][field_type_id]=5';
   $result = drupal_http_request(
     'https://api.karmacrm.com/api/v2/contacts.json',
     array(
