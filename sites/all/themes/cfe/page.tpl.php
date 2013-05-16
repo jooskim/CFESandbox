@@ -25,8 +25,12 @@
 			<?php else: ?>
 				<?php if ($title): ?><h2 class="title" id="page-title"><?php print $title; ?></h2><?php endif; ?>
 			<?php endif; ?>
+			<?php if ($messages): ?>
+				<div id="messages"><?php print $messages; ?></div>
+			<?php endif; ?>
 			<?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
-			<?php print render($page['content']); ?>			<?php if ($page['sidebar_first']): ?>
+			<?php print render($page['content']); ?>
+			<?php if ($page['sidebar_first']): ?>
 				</div>
 			<?php endif; ?>
 		</div>
