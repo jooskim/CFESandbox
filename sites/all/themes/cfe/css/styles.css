@@ -584,6 +584,7 @@ footer {
 	display: inline-block;
 	vertical-align: top;
 }
+
 .view-news .views-row,
 .view-entr407-videos .views-row,
 .view-entr407-bios .views-row,
@@ -594,6 +595,18 @@ footer {
 	min-height: 200px;
 	width: 32%;
 	padding: 0px 0px 10px 0px;
+}
+.view-people td.col-1{
+	width: 320px;
+}
+.view-people td.col-2{
+	width: 320px;
+}
+.view-people td.col-1:last-child {
+	margin-bottom: 10px;
+}
+.view-people td.col-2:last-child {
+	margin-bottom: 10px;
 }
 .view-news .views-row:hover {
 	background-color: #f1f1f1;
