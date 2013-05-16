@@ -580,10 +580,24 @@ footer {
 #block-views-latest-event-block-1 .newsItem .views-field-title {
 	display: inline-block;
 	position: relative;
-	width: 220px;
-	height: 60px;
+	width: 200px;
 	background-color: rgba(50,50,50,0.7);
 	top: -60px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 10px;
+}
+#block-views-latest-event-block-1 .newsItem .views-field-field-published {
+	position: relative;
+	width: 200px;
+	background-color: rgba(50,50,50,0.7);
+	top: -60px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 0.8em;
+	color: white;
 }
 /* Sidebar styling ends here */
 
