@@ -52,6 +52,10 @@
 			$('html,body').animate({scrollTop: locOfSnippet}, 300);
 		});
 		
+		// Copy the link of the teaser title on the sidebar to its date published
+		$('#block-views-latest-event-block-1 .newsItem .views-field-field-published').css('cursor','pointer').click(function(){
+			location.href = $('#block-views-latest-event-block-1 .newsItem .views-field-title h3 a').attr('href');
+		});
 		
 	}); // ready
 	

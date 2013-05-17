@@ -579,17 +579,20 @@ footer {
 }
 #block-views-latest-event-block-1 .newsItem .views-field-title {
 	display: inline-block;
+	height: 26px;
+}
+#block-views-latest-event-block-1 .newsItem .views-field-title h3 a {
+	color: white;
+	font-weight: 400;
+	display: inline-block;
 	position: relative;
 	width: 200px;
 	background-color: rgba(50,50,50,0.7);
 	padding-top: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-bottom: 10px;
 	line-height: 10px;
-}
-#block-views-latest-event-block-1 .newsItem .views-field-title h3 a {
-	color: white;
-	font-weight: 400;
 }
 #block-views-latest-event-block-1 .newsItem .views-field-field-published {
 	position: relative;
