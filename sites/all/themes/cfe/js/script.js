@@ -52,11 +52,36 @@
 			$('html,body').animate({scrollTop: locOfSnippet}, 300);
 		});
 		
-		// Copy the link of the teaser title on the sidebar to its date published
-		$('#block-views-latest-event-block-1 .newsItem .views-field-field-published').css('cursor','pointer').click(function(){
-			location.href = $('#block-views-latest-event-block-1 .newsItem .views-field-title h3 a').attr('href');
+		/* -- Sidebar styling starts here -- */
+		
+		// Strap the news/event title and published date sections together as well as give it a link
+		$('#block-views-latest-event-block-1 .newsItem').css('cursor','pointer').click(function(){
+			location.href=$('.views-field-title span a',this).attr('href');
+		});
+		// Strap the youtube video title and published date sections together as well as give it a link
+		$('#block-views-latest-event-block-3 .content .views-field-title').before('<div id="wrapTitleDate">');
+		$('#wrapTitleDate').append($('#block-views-latest-event-block-3 .content .views-field-title').html()+$('#block-views-latest-event-block-3 .content .views-field-field-published').html());
+		$('#block-views-latest-event-block-3 #wrapTitleDate').css('cursor','pointer').click(function(){
+			location.href=$('#block-views-latest-event-block-3 #wrapTitleDate h3 a').attr('href');
 		});
 		
+		// Hide the existing areas
+		$('#block-views-latest-event-block-3 .content .views-field-title').hide();
+		$('#block-views-latest-event-block-3 .content .views-field-field-published').hide();
+		
+		//
+		$('.newsItem').hover(function(){
+			$(this).css('background-color', 'rgba(0,75,150,1)');
+		},function(){
+			$(this).css('background-color', 'rgba(0,75,150,0.7)');
+		});
+		
+		$('#block-views-latest-event-block-3 #wrapTitleDate').hover(function(){
+			$(this).css('background-color', 'rgba(0,75,150,1)');
+		},function(){
+			$(this).css('background-color', 'rgba(0,75,150,0.7)');
+		});
+		/* -- Sidebar styling ends here -- */
 	}); // ready
 	
 }(jQuery));

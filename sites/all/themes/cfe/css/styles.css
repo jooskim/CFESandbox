@@ -565,46 +565,106 @@ footer {
 	padding: 10px;
 }
 
-/* Sidebar styling starts here */
+/* -- Sidebar styling starts here -- */
+
+/* Latest News and Events */
 #block-views-latest-event-block-1 h2 {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 	font-weight: 400;
 	font-size: 2em;
+	padding-bottom: 8px;
 }
 #block-views-latest-event-block-1 .newsItem {
-	background-color: #aaa; /* temporary */
+	margin-top: 6px;
+	background-color: rgba(0, 75, 150, 0.7);
+	width: 240px;
 }
 #block-views-latest-event-block-1 img {
 	width: 220px;
 }
 #block-views-latest-event-block-1 .newsItem .views-field-title {
 	display: inline-block;
-	height: 26px;
+	height: auto;
 }
-#block-views-latest-event-block-1 .newsItem .views-field-title h3 a {
+span.view-latest-event-title a {
+	font-size: 16px;
 	color: white;
 	font-weight: 400;
 	display: inline-block;
 	position: relative;
-	width: 200px;
-	background-color: rgba(50,50,50,0.7);
-	padding-top: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-bottom: 10px;
-	line-height: 10px;
+	width: 210px;
+	
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	line-height: 15px;
 }
 #block-views-latest-event-block-1 .newsItem .views-field-field-published {
 	position: relative;
-	width: 200px;
-	background-color: rgba(50,50,50,0.7);
-	padding-bottom: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
+	width: 210px;
+	
+	padding-bottom: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 	font-size: 0.8em;
 	color: white;
 }
-/* Sidebar styling ends here */
+
+/* Latest Video */
+#block-views-latest-event-block-3 h2 {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-weight: 400;
+	font-size: 2em;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.thumbnail a img {
+	width: 240px;
+}
+#block-views-latest-event-block-3 h3.view-latest-event-title a {
+	font-size: 16px;
+	color: white;
+	font-weight: 400;
+	display: inline-block;
+	position: relative;
+	width: 210px;
+
+}
+#block-views-latest-event-block-3 .views-field-field-youtube .thumbnail {
+	height: 180px;
+}
+#block-views-latest-event-block-3 #wrapTitleDate {
+	width: 210px;
+	background-color: rgba(0,75,150,0.7);
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+
+#block-views-latest-event-block-3 #wrapTitleDate .field-content span {
+	font-size: 0.8em;
+	color: white;
+	
+}
+#block-views-latest-event-block-3 #wrapTitleDate h3 {
+	padding-bottom: 0px;
+}
+#block-views-latest-event-block-3 #wrapTitleDate h3 a {
+	padding-bottom: 0px;
+
+}
+#block-views-latest-event-block-3 .views-field-field-published {
+	position: relative;
+	width: 210px;
+
+	padding-bottom: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 0.8em;
+	color: white;
+}
+/* -- Sidebar styling ends here -- */
 
 /* News and Resources Pages */
 .view-news .view-content ul {
