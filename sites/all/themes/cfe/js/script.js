@@ -70,7 +70,7 @@
 		$('#block-views-latest-event-block-3 .content .views-field-field-published').hide();
 		
 		//
-		$('.newsItem').hover(function(){
+		$('#block-views-latest-event-block-1 .newsItem').hover(function(){
 			$(this).css('background-color', 'rgba(0,75,150,1)');
 		},function(){
 			$(this).css('background-color', 'rgba(0,75,150,0.7)');
