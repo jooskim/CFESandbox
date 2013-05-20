@@ -48,7 +48,15 @@
 			var currentObj = $(this);
 			var currentObjName = currentObj.text();
 			var currentObjNameHyp = currentObjName.toLowerCase().replace(" ", "-");
-			var locOfSnippet = $('div span[class="field-content imgHeader"] a:contains("'+currentObjName+'")').position().top - 180;
+			var currentPage = window.location.pathname;
+			
+			if($('.view-people').length != 0) {
+				var locOfSnippet = $('div span[class="field-content imgHeader"] a:contains("'+currentObjName+'")').position().top - 180;
+			}else if($('.view-classes').length != 0){
+				var courseNum = currentObjName.substr(0, currentObjName.indexOf("—"));
+				
+				var locOfSnippet = $('.view-classes .attachment-after h2 a:contains('+courseNum+')').parent().parent().position().top + 15;
+			}
 			$('html,body').animate({scrollTop: locOfSnippet}, 300);
 		});
 		
@@ -80,6 +88,31 @@
 			$(this).css('background-color', 'rgba(0,75,150,1)');
 		},function(){
 			$(this).css('background-color', 'rgba(0,75,150,0.7)');
+		});
+		
+		// Play icon shows up on hovering over the thumbnail of the video
+		$('#block-views-latest-event-block-3 .thumbnail a').before('<div class="floatingLayer"><div class="playIcon"></div></div>');
+		$('#block-views-latest-event-block-3 .thumbnail .playIcon').click(function(){
+			window.open($('#block-views-latest-event-block-3 .thumbnail a').attr('href'),'video');
+		});
+		$('#block-views-latest-event-block-3 .thumbnail').hover(function(){
+			$('#block-views-latest-event-block-3 .thumbnail .playIcon').fadeIn(250);
+		},function(){
+			$('#block-views-latest-event-block-3 .thumbnail .playIcon').fadeOut(250);
+		});
+		
+		// When the height of the page is larger than a certain size, display a button that sends the users back to the top of the screen
+		$('#page_contents .col_1').append('<div id="scrollToTop"><a href="#" id="goToTop" class="button" style="width:220px; text-align: center">Top</a></div>');
+		$('#scrollToTop #goToTop').click(function(event){
+			event.preventDefault();
+			$('html,body').animate({'scrollTop':'0px'}, 300);
+		});
+		$(document).scroll(function(){
+			if($(document).scrollTop() > 960){
+				$('#page_contents .col_1 #scrollToTop').fadeIn(250);
+			}else{
+				$('#page_contents .col_1 #scrollToTop').fadeOut(250);
+			}
 		});
 		/* -- Sidebar styling ends here -- */
 	}); // ready

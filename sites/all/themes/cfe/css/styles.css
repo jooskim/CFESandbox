@@ -365,7 +365,7 @@ navigation ul li:hover ul li {
 }
 .menu .expanded ul .expanded ul {
 	display: block;
-	width: 195px;
+	width: 199px;
 	top: -2px;
 }
 navigation .menu .menu a {
@@ -382,7 +382,7 @@ navigation .menu .menu li.expanded:hover {
 	left: 0px;
 }
 navigation .menu .menu .expanded .menu {
-    box-shadow: none;
+    box-shadow: 0 0 5px #444;
     display: none;
 	position: absolute;
 	left: 100%;
@@ -664,6 +664,19 @@ span.view-latest-event-title a {
 	font-size: 0.8em;
 	color: white;
 }
+#block-views-latest-event-block-3 .floatingLayer {
+	width: 0;
+	height: 0;
+	position: relative;
+}
+#block-views-latest-event-block-3 .playIcon {
+	display: none;
+	width: 240px;
+	height: 180px;
+	background: url('../images/play.png') no-repeat center;
+	position: relative;
+	cursor: pointer;
+}
 /* -- Sidebar styling ends here -- */
 
 /* News and Resources Pages */
@@ -764,6 +777,20 @@ span.view-latest-event-title a {
 	border-top: 1px solid #ccc;
 }
 
+/* Classes Pages */
+.view-classes .views-field-title {
+	font-weight: bold;
+	font-size: 13px;
+}
+
+/* scrollToTop layer */
+#page_contents .col_1 #scrollToTop {
+	position: fixed;
+	bottom: 30px;
+	width: 240px;
+	height: 30px;
+	display: none;
+}
 /* ---------------------
 	 START OF OLD STYLES
 ---------------------- */
