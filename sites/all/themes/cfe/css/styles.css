@@ -696,12 +696,10 @@ span.view-latest-event-title a {
 .view-entr407-videos .views-row,
 .view-entr407-bios .views-row,
 .view-people .views-row {
-	/*float: left;
-	clear: right;*/
 	list-style-type: none;
-	min-height: 200px;
-	width: 32%;
+	width: 31%;
 	padding: 0px 0px 10px 0px;
+	margin: 0px;
 }
 .view-people td.col-1{
 	width: 320px;
