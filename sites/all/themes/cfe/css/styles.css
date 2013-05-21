@@ -780,9 +780,6 @@ span.view-latest-event-title a {
 }
 
 /* Classes Pages */
-.view-classes  .attachment .views-field-title {
-	font-size: .8em;
-}
 .view-classes .views-label {
 	float: left;
 	position: relative;
