@@ -780,6 +780,13 @@ span.view-latest-event-title a {
 }
 
 /* Classes Pages */
+.view-classes .views-field-title {
+	font-weight: bold;
+}
+.view-classes .views-view-grid .views-field-title {
+	font-weight: normal;
+	font-size: .8em;
+}
 .view-classes .views-label {
 	float: left;
 	position: relative;
