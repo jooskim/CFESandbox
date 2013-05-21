@@ -698,7 +698,7 @@ span.view-latest-event-title a {
 .view-people .views-row {
 	list-style-type: none;
 	width: 31%;
-	padding: 0px 0px 10px 0px;
+	padding: 0px 0px 10px 10px;
 	margin: 0px;
 }
 .view-people td.col-1{
@@ -724,7 +724,8 @@ span.view-latest-event-title a {
 .view-news .field-type-image,
 .node-entr407-recordings .field-type-image,
 .view-entr407-bios .views-field-field-image,
-.view-people .views-field-field-image {
+.view-people .views-field-field-image,
+.page-student-groups .field-type-image {
 	position: relative;
 	float: left;
 	clear: right;
