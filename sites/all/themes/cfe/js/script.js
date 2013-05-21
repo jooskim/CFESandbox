@@ -54,8 +54,7 @@
 				var locOfSnippet = $('div span[class="field-content imgHeader"] a:contains("'+currentObjName+'")').position().top - 180;
 			}else if($('.view-classes').length != 0){
 				var courseNum = currentObjName.substr(0, currentObjName.indexOf("—"));
-				
-				var locOfSnippet = $('.view-classes .attachment-after h2 a:contains('+courseNum+')').parent().parent().position().top + 15;
+				var locOfSnippet = $('.view-classes .attachment-after span a:contains('+courseNum+')').parent().parent().position().top + 15;
 			}
 			$('html,body').animate({scrollTop: locOfSnippet}, 300);
 		});
@@ -107,14 +106,31 @@
 			event.preventDefault();
 			$('html,body').animate({'scrollTop':'0px'}, 300);
 		});
+
 		$(document).scroll(function(){
+			var scrollOffset = $(document).height() - $(document).scrollTop();
+			//$('#scrollToTop').html(scrollOffset);
+			
 			if($(document).scrollTop() > 960){
 				$('#page_contents .col_1 #scrollToTop').fadeIn(250);
+				if(scrollOffset <= 990){
+					//
+				}else{
+					
+				}
 			}else{
 				$('#page_contents .col_1 #scrollToTop').fadeOut(250);
 			}
+			if($(document).height() > 1200 && $(document).scrollTop() >= 0 && scrollOffset >= 895){
+				$('.wrapper #page_contents .col_1').css("top",$(document).scrollTop());
+			}else{
+				
+			}
 		});
+		
+		
 		/* -- Sidebar styling ends here -- */
+		
 	}); // ready
 	
 }(jQuery));
