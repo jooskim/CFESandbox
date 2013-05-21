@@ -725,7 +725,7 @@ span.view-latest-event-title a {
 .node-entr407-recordings .field-type-image,
 .view-entr407-bios .views-field-field-image,
 .view-people .views-field-field-image,
-.page-student-groups .field-type-image {
+.page-student-groups .iews-field-field-image {
 	position: relative;
 	float: left;
 	clear: right;
@@ -735,7 +735,8 @@ span.view-latest-event-title a {
 }
 .node-type-article .field-type-image,
 .node-type-article-external- .field-type-image,
-.node-type-person .field-type-image {
+.node-type-person .field-type-image,
+.node-type-resource .field-type-image {
 	position: relative;
 	float: right;
 	clear: right;
