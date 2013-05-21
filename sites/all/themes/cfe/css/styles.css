@@ -747,8 +747,7 @@ span.view-latest-event-title a {
 
 /* ENTR407 Videos */
 .node-entr407-recordings  .field-type-datetime,
-.view-entr407-videos .views-field-title,
-.view-people .views-field-title {
+.view-entr407-videos .views-field-title {
 	font-weight: bold;
 }
 .node-entr407-recordings .field-name-body,
@@ -767,7 +766,7 @@ span.view-latest-event-title a {
 }
 
 /* People  Pages */
-.field-name-field-job {
+.view-people .view-content .views-field-title, .field-name-field-job {
 	font-weight: bold;
 }
 .field-name-field-research,
@@ -779,8 +778,12 @@ span.view-latest-event-title a {
 
 /* Classes Pages */
 .view-classes .views-field-title {
-	font-weight: bold;
-	font-size: 13px;
+	font-size: .8em;
+}
+.view-classes .views-label {
+	float: left;
+	position: relative;
+	padding-right: .4em;
 }
 
 /* scrollToTop layer */
