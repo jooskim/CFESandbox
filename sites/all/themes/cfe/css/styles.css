@@ -631,7 +631,7 @@ span.view-latest-event-title a {
 
 }
 #block-views-latest-event-block-3 .views-field-field-youtube .thumbnail {
-	height: 180px;
+	height: 157px;
 }
 #block-views-latest-event-block-3 #wrapTitleDate {
 	width: 210px;
@@ -674,9 +674,17 @@ span.view-latest-event-title a {
 	width: 240px;
 	height: 180px;
 	background: url('../images/play.png') no-repeat center;
-	position: relative;
+	position: absolute;
 	cursor: pointer;
+	z-index: 100;
 }
+#block-views-latest-event-block-3 .thumbnail a img {
+	position: absolute;
+	clip: rect(23px,240px,157px,0px);
+	width: 238px;
+	border: 1px solid #000;
+}
+
 /* -- Sidebar styling ends here -- */
 
 /* News and Resources Pages */

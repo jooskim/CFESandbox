@@ -76,7 +76,7 @@
 		$('#block-views-latest-event-block-3 .content .views-field-title').hide();
 		$('#block-views-latest-event-block-3 .content .views-field-field-published').hide();
 		
-		//
+		// Highlight each item upon hovering
 		$('#block-views-latest-event-block-1 .newsItem').hover(function(){
 			$(this).css('background-color', 'rgba(0,75,150,1)');
 		},function(){
@@ -100,16 +100,16 @@
 			$('#block-views-latest-event-block-3 .thumbnail .playIcon').fadeOut(250);
 		});
 		
-		// When the height of the page is larger than a certain size, display a button that sends the users back to the top of the screen
+		// Set up 'Top' button
 		$('#page_contents .col_1').append('<div id="scrollToTop"><a href="#" id="goToTop" class="button" style="width:220px; text-align: center">Top</a></div>');
 		$('#scrollToTop #goToTop').click(function(event){
 			event.preventDefault();
 			$('html,body').animate({'scrollTop':'0px'}, 300);
 		});
 
+		// When the height of the page is larger than 960px, display a button that sends the users back to the top of the screen
 		$(document).scroll(function(){
 			var scrollOffset = $(document).height() - $(document).scrollTop();
-			//$('#scrollToTop').html(scrollOffset);
 			
 			if($(document).scrollTop() > 960){
 				$('#page_contents .col_1 #scrollToTop').fadeIn(250);
@@ -127,7 +127,6 @@
 				
 			}
 		});
-		
 		
 		/* -- Sidebar styling ends here -- */
 		
