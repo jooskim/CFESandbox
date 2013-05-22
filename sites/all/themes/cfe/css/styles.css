@@ -616,7 +616,8 @@ span.view-latest-event-title a {
 	font-weight: 400;
 	font-size: 2em;
 	padding-top: 8px;
-	padding-bottom: 8px;
+	position: relative;
+	top: 9px;
 }
 .thumbnail a img {
 	width: 240px;
@@ -710,10 +711,13 @@ span.view-latest-event-title a {
 	margin: 0px;
 }
 .view-people td.col-1{
-	width: 320px;
+	width: 250px;
 }
 .view-people td.col-2{
-	width: 320px;
+	width: 250px;
+}
+.view-people td.col-3{
+	width: 250px;
 }
 .view-people td.col-1:last-child {
 	margin-bottom: 10px;

@@ -130,6 +130,24 @@
 		
 		/* -- Sidebar styling ends here -- */
 		
+		/* -- Archive view layout in News page starts here -- */
+		if($('body').hasClass('page-news-')){
+			var loc = location.href.split('/');
+			var year = parseInt((loc[loc.length-1]/100));
+			var month = parseInt(loc[loc.length-1]) % year;
+			var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+			
+			$('.wrapper #page_contents .col_2 .content .view-display-id-attachment_1','body').empty();
+			$('.wrapper #page_contents .col_2 .content .view-display-id-attachment_1','body').append("<h2>"+monthNames[month-1]+" "+year+"</h2>");
+		}
+		/* -- Archive view layout in News page ends here -- */
+		
+		/* -- Article(External) view styling starts here -- */
+		if($('body').hasClass('node-type-article-external-')){
+			// Make a little bit of space between the published date and the link button
+			$('.wrapper #page_contents .col_2 .field-name-field-url .field-items .field-item').css('margin-top', '25px');
+		}
+		/* -- Article(External) view styling ends here -- */
 	}); // ready
 	
 }(jQuery));
