@@ -12,23 +12,95 @@ function karma_form_submit_handler($form, &$form_state) {
    $first_name = $form_state['values']['submitted'][2];
    $last_name = $form_state['values']['submitted'][3];
    $email = $form_state['values']['submitted'][4];
-   $city = $form_state['values']['submitted'][5];
+   $location = $form_state['values']['submitted'][56];
    $phone = $form_state['values']['submitted'][6];
    $skype = $form_state['values']['submitted'][7];
    $company = $form_state['values']['submitted'][14];
    $position = $form_state['values']['submitted'][15];
    $linkedin = $form_state['values']['submitted'][28];
-   $uniqname = $form_state['values']['submitted'][46];
-   $industry = $form_state['values']['submitted'][20];
-   $expertise = $form_state['values']['submitted'][21];
-   $capabilities = $form_state['values']['submitted'][22];
-   $school = $form_state['values']['submitted'][9];
-   $degree = $form_state['values']['submitted'][10];
-   $major =  = $form_state['values']['submitted'][11];
-   $gradyear = $form_state['values']['submitted'][49];
-   
-$data = 'api_token=tD8wH8TgdcgpzBEbv17X&contact[first_name]='.$first_name.'&contact[last_name]='.$last_name.'&contact[secondary_emails][][email]='.$email.'&contact[secondary_emails][][secondary_email_type_id]=1&contact[addresses][][city]='.$city.'&contact[phone_numbers][][number]='.$phone.'&contact[phone_numbers][][phone_number_type_id]=1&contact[social_accounts][][name]='.$skype.'&contact[social_accounts][][social_account_type_id]=82&contact[title]='.$position.'&contact[company][name]='.$company.'&contact[secondary_websites][][url]='.$linkedin.'&contact[secondary_websites][][secondary_website_type_id]=3&contact[field_values][][field_id]=84399&contact[field_values][][value]='.$uniqname.'&contact[field_values][][field_type_id]=5&contact[field_values][][field_parent_id]=16882&contact[field_values][][value]='.$industry.'&contact[field_values][][field_type_id]=3&contact[field_values][][field_parent_id]=84295&contact[field_values][][value]='.$expertise.'&contact[field_values][][field_type_id]=3&contact[field_values][][field_id]=84306&contact[field_values][][value]='.$capabilities.'&contact[field_values][][field_type_id]=5';
+   $uniq = $form_state['values']['submitted'][46];
+   $industries = $form_state['values']['submitted'][20];
+   $expertises = $form_state['values']['submitted'][21];
+   $capabilities = $form_state['values']['submitted'][55];
 
+   if ($location=='midwest') { $locationid = 16894; }
+   if ($location=='northeast') { $locationid = 16895; }
+   if ($location=='east') { $locationid = 16898; }
+   if ($location=='west') { $locationid = 16899; }
+   if ($location=='international') { $locationid = 16900; }
+   if ($location=='north') { $locationid = 84339; }
+   if ($location=='south') { $locationid = 84340; }
+
+   $industryid = array();
+   foreach ($industries as $industry) {
+	if ($industry=='aerospace') { $industryid[] = 84274; }
+	if ($industry=='agriculture') { $industryid[] = 84281; }
+	if ($industry=='alternativeenergy') { $industryid[] = 84288; }
+	if ($industry=='automotive') { $industryid[] = 84275; }
+	if ($industry=='biotechnology') { $industryid[] = 84282; }
+	if ($industry=='chemical') { $industryid[] = 84308; }
+	if ($industry=='cleantech') { $industryid[] = 84289; }
+	if ($industry=='communication') { $industryid[] = 84276; }
+	if ($industry=='consumerproducts') { $industryid[] = 84283; }
+	if ($industry=='energy') { $industryid[] = 84290; }
+	if ($industry=='engineering') { $industryid[] = 84277; }
+	if ($industry=='food') { $industryid[]  = 84309; }
+	if ($industry=='healthcare') { $industryid[] = 84284; }
+	if ($industry=='it') { $industryid[]  = 84291; }
+	if ($industry=='manufacturing') { $industryid[] = 84278; }
+	if ($industry=='medicaldevices') { $industryid[] = 84285; }
+	if ($industry=='media') { $industryid[]  = 84292; }
+	if ($industry=='nanotechnology') { $industryid[] = 84279; }
+	if ($industry=='pharmaceuticals') { $industryid[] = 84286; }
+	if ($industry=='semiconductors') { $industryid[] = 84293; }
+	if ($industry=='software') { $industryid[] = 84280; }
+	if ($industry=='telecom') { $industryid[] = 84287; }
+	if ($industry=='transportation') { $industryid[] = 84294; }
+   }
+      
+   $industrystring = "";
+   foreach ($industryid as $iid) {
+     $industrystring .=  "&contact[field_values][][field_parent_id]=16882&contact[field_values][][field_type_id]=3&contact[field_values][][field_id]=";
+	 $industrystring .= $iid;
+   }
+   
+   $expertiseid = array();
+   foreach ($expertises as $expertise) {	
+	if ($expertise=='accounting') { $expertiseid[] = 84296; }
+	if ($expertise=='design') { $expertiseid[] = 84299; }
+	if ($expertise=='diagnostics') { $expertiseid[] = 84315; }
+	if ($expertise=='engineering') { $expertiseid[] = 84303; }
+	if ($expertise=='fundraising') { $expertiseid[] = 84300; }
+	if ($expertise=='hr') { $expertiseid[] = 84304; }
+	if ($expertise=='it') { $expertiseid[] = 84297; }
+	if ($expertise=='ithardware') { $expertiseid[] = 84317; }
+	if ($expertise=='itsoftware') { $expertiseid[] = 84318; }
+	if ($expertise=='legal') { $expertiseid[] = 84301; }
+	if ($expertise=='logistics') { $expertiseid[] = 84311; }
+	if ($expertise=='marketing') { $expertiseid[] = 84305; }
+	if ($expertise=='manufacturing') { $expertiseid[] = 84298; }
+	if ($expertise=='patent') { $expertiseid[] = 84312; }
+	if ($expertise=='prototyping') { $expertiseid[] = 84320; }
+	if ($expertise=='quality') { $expertiseid[] = 84313; }
+	if ($expertise=='regulatory') { $expertiseid[] = 84302; }
+	if ($expertise=='reimbursement') { $expertiseid[] = 84314; }
+	if ($expertise=='sales') { $expertiseid[] = 84316; }
+	if ($expertise=='supply') { $expertiseid[] = 84310; }
+	if ($expertise=='web') { $expertiseid[] = 84319; }
+   }
+   
+   $expertisestring = "";
+   foreach ($expertiseid as $eid) {
+     $expertisestring .=  "&contact[field_values][][field_parent_id]=84295&contact[field_values][][field_type_id]=3&contact[field_values][][field_id]=";
+	 $expertisestring .= $eid;
+   }
+   
+   dpm($expertisestring);
+   
+   $data = 'api_token=tD8wH8TgdcgpzBEbv17X'.$industrystring.''.$expertisestring.'&contact[field_values][][field_type_id]=5&contact[field_values][][field_id]=84247&contact[field_values][][value]='.$uniq.'&contact[first_name]='.$first_name.'&contact[field_values][][field_type_id]=2&contact[field_values][][field_parent_id]=16893&contact[field_values][][field_id]='.$locationid.'&contact[last_name]='.$last_name.'&contact[secondary_emails][][email]='.$email.'&contact[secondary_emails][][secondary_email_type_id]=1&contact[phone_numbers][][number]='.$phone.'&contact[phone_numbers][][phone_number_type_id]=1&contact[field_values][][field_type_id]=3&contact[social_accounts][][name]='.$skype.'&contact[social_accounts][][social_account_type_id]=82&contact[company][name]='.$company.'&contact[field_values][][field_type_id]=5&contact[field_values][][field_id]=84306&contact[field_values][][value]='.$capabilities.'&contact[secondary_websites][][url]='.$linkedin.'&contact[secondary_websites][][secondary_website_type_id]=3&contact[position]='.$position;
+
+   dpm($data);
+   
   $result = drupal_http_request(
     'https://api.karmacrm.com/api/v2/contacts.json',
     array(
