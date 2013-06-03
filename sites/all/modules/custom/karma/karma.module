@@ -21,7 +21,7 @@ function karma_form_submit_handler($form, &$form_state) {
    $uniq = $form_state['values']['submitted'][46];
    $industries = $form_state['values']['submitted'][20];
    $expertises = $form_state['values']['submitted'][21];
-   $capabilities = $form_state['values']['submitted'][55];
+   $capabilities = $form_state['values']['submitted'][57];
 
    if ($location=='midwest') { $locationid = 16894; }
    if ($location=='northeast') { $locationid = 16895; }
@@ -129,15 +129,7 @@ function karma_form_submit_handler($form, &$form_state) {
 	 $capabilitystring .= $cid;
    }   
 	
-   $data = 'api_token=tD8wH8TgdcgpzBEbv17X'.$industrystring.''.$expertisestring''.$capabilitystring'
-   &contact[field_values][][field_type_id]=5&contact[field_values][][field_id]=84247&contact[field_values][][value]='.$uniq.'
-   &contact[first_name]='.$first_name.'
-   &contact[field_values][][field_type_id]=2&contact[field_values][][field_parent_id]=16893&contact[field_values][][field_id]='.$locationid.'
-   &contact[last_name]='.$last_name.'&contact[secondary_emails][][email]='.$email.'&contact[secondary_emails][][secondary_email_type_id]=1
-   &contact[phone_numbers][][number]='.$phone.'&contact[phone_numbers][][phone_number_type_id]=1
-   &contact[social_accounts][][name]='.$skype.'&contact[social_accounts][][social_account_type_id]=82
-   &contact[company][name]='.$company.'
-   &contact[secondary_websites][][url]='.$linkedin.'&contact[secondary_websites][][secondary_website_type_id]=3&contact[position]='.$position;
+   $data = 'api_token=tD8wH8TgdcgpzBEbv17X'.$industrystring.''.$expertisestring.''.$capabilitystring.'&contact[field_values][][field_type_id]=5&contact[field_values][][field_id]=84247&contact[field_values][][value]='.$uniq.'&contact[first_name]='.$first_name.'&contact[field_values][][field_type_id]=2&contact[field_values][][field_parent_id]=16893&contact[field_values][][field_id]='.$locationid.'&contact[last_name]='.$last_name.'&contact[secondary_emails][][email]='.$email.'&contact[secondary_emails][][secondary_email_type_id]=1&contact[phone_numbers][][number]='.$phone.'&contact[phone_numbers][][phone_number_type_id]=1&contact[social_accounts][][name]='.$skype.'&contact[social_accounts][][social_account_type_id]=82&contact[company][name]='.$company.'&contact[secondary_websites][][url]='.$linkedin.'&contact[secondary_websites][][secondary_website_type_id]=3&contact[position]='.$position;
    
   $result = drupal_http_request(
     'https://api.karmacrm.com/api/v2/contacts.json',
