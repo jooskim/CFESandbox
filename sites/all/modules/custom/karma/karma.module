@@ -33,29 +33,47 @@ function karma_form_submit_handler($form, &$form_state) {
 
    $industryid = array();
    foreach ($industries as $industry) {
-	if ($industry=='aerospace') { $industryid[] = 84274; }
-	if ($industry=='agriculture') { $industryid[] = 84281; }
-	if ($industry=='alternativeenergy') { $industryid[] = 84288; }
-	if ($industry=='automotive') { $industryid[] = 84275; }
-	if ($industry=='biotechnology') { $industryid[] = 84282; }
-	if ($industry=='chemical') { $industryid[] = 84308; }
+	if ($industry=='aerospace') { $industryid[] = 84292; }
+	if ($industry=='agriculture') { $industryid[] = 96155; }
+	if ($industry=='energygeneration') { $industryid[] = 96156; }
+	if ($industry=='energybiofuels') { $industryid[] = 96157; }
+	if ($industry=='automotive') { $industryid[] = 96159; }
+	if ($industry=='biotechnology') { $industryid[] = 96162; }
+	if ($industry=='chemical') { $industryid[] = 96163; }
 	if ($industry=='cleantech') { $industryid[] = 84289; }
-	if ($industry=='communication') { $industryid[] = 84276; }
-	if ($industry=='consumerproducts') { $industryid[] = 84283; }
-	if ($industry=='energy') { $industryid[] = 84290; }
-	if ($industry=='engineering') { $industryid[] = 84277; }
-	if ($industry=='food') { $industryid[]  = 84309; }
-	if ($industry=='healthcare') { $industryid[] = 84284; }
-	if ($industry=='it') { $industryid[]  = 84291; }
-	if ($industry=='manufacturing') { $industryid[] = 84278; }
-	if ($industry=='medicaldevices') { $industryid[] = 84285; }
-	if ($industry=='media') { $industryid[]  = 84292; }
-	if ($industry=='nanotechnology') { $industryid[] = 84279; }
-	if ($industry=='pharmaceuticals') { $industryid[] = 84286; }
-	if ($industry=='semiconductors') { $industryid[] = 84293; }
-	if ($industry=='software') { $industryid[] = 84280; }
-	if ($industry=='telecom') { $industryid[] = 84287; }
-	if ($industry=='transportation') { $industryid[] = 84294; }
+	if ($industry=='communication') { $industryid[] = 96165; }
+	if ($industry=='consumerproducts') { $industryid[] = 96166; }
+	if ($industry=='electronics') { $industryid[] = 96185; }
+	if ($industry=='energy') { $industryid[] = 96158; }
+	if ($industry=='engineeringaero') { $industryid[] = 96167; }
+	if ($industry=='engineeringaoss') { $industryid[] = 96168; }
+	if ($industry=='engineeringbio') { $industryid[] = 96169; }
+	if ($industry=='engineeringchem') { $industryid[] = 96170; }
+	if ($industry=='engineeringcivil') { $industryid[] = 96171; }
+	if ($industry=='engineeringeecs') { $industryid[] = 96172; }
+	if ($industry=='engineeringioe') { $industryid[] = 96173; }
+	if ($industry=='engineeringms') { $industryid[] = 96174; }
+	if ($industry=='engineeringme') { $industryid[] = 96175; }
+	if ($industry=='engineeringnams') { $industryid[] = 96176; }
+	if ($industry=='engineeringners') { $industryid[] = 96177; }
+	if ($industry=='food') { $industryid[]  = 96178; }
+	if ($industry=='healthcaremed') { $industryid[] = 96179; }
+	if ($industry=='healthcarediag') { $industryid[] = 96180; }
+	if ($industry=='healthcareit') { $industryid[] = 96181; }
+	if ($industry=='healthcarereg') { $industryid[] = 96182; }
+	if ($industry=='it') { $industryid[]  = 96183; }
+	if ($industry=='manufacturing') { $industryid[] = 96184; }
+	if ($industry=='math') { $industryid[] = 96189; }
+	if ($industry=='medicaldevices') { $industryid[] = 96160; }
+	if ($industry=='media') { $industryid[]  = 96186; }
+	if ($industry=='nanotechnology') { $industryid[] = 96187; }
+	if ($industry=='physics') { $industryid[] = 96188; }
+	if ($industry=='pharmaceuticals') { $industryid[] = 96161; }
+	if ($industry=='semiconductors') { $industryid[] = 96190; }
+	if ($industry=='software') { $industryid[] = 96191; }
+	if ($industry=='telecom') { $industryid[] = 96192; }
+	if ($industry=='transportation') { $industryid[] = 96193; }
+	if ($industry=='water') { $industryid[] = 96164; }
    }
       
    $industrystring = "";
@@ -68,25 +86,23 @@ function karma_form_submit_handler($form, &$form_state) {
    foreach ($expertises as $expertise) {	
 	if ($expertise=='accounting') { $expertiseid[] = 84296; }
 	if ($expertise=='design') { $expertiseid[] = 84299; }
-	if ($expertise=='diagnostics') { $expertiseid[] = 84315; }
 	if ($expertise=='engineering') { $expertiseid[] = 84303; }
 	if ($expertise=='fundraising') { $expertiseid[] = 84300; }
 	if ($expertise=='hr') { $expertiseid[] = 84304; }
-	if ($expertise=='it') { $expertiseid[] = 84297; }
-	if ($expertise=='ithardware') { $expertiseid[] = 84317; }
-	if ($expertise=='itsoftware') { $expertiseid[] = 84318; }
+	if ($expertise=='it') { $expertiseid[] = 84334; }
+	if ($expertise=='ip') { $expertiseid[] = 96196; }
+	if ($expertise=='banking') { $expertiseid[] = 96195; }
 	if ($expertise=='legal') { $expertiseid[] = 84301; }
-	if ($expertise=='logistics') { $expertiseid[] = 84311; }
-	if ($expertise=='marketing') { $expertiseid[] = 84305; }
+	if ($expertise=='marketing') { $expertiseid[] = 84333; }
 	if ($expertise=='manufacturing') { $expertiseid[] = 84298; }
 	if ($expertise=='patent') { $expertiseid[] = 84312; }
 	if ($expertise=='prototyping') { $expertiseid[] = 84320; }
 	if ($expertise=='quality') { $expertiseid[] = 84313; }
 	if ($expertise=='regulatory') { $expertiseid[] = 84302; }
-	if ($expertise=='reimbursement') { $expertiseid[] = 84314; }
-	if ($expertise=='sales') { $expertiseid[] = 84316; }
+	if ($expertise=='reimbursement') { $expertiseid[] = 84331; }
+	if ($expertise=='sales') { $expertiseid[] = 96197; }
 	if ($expertise=='supply') { $expertiseid[] = 84310; }
-	if ($expertise=='web') { $expertiseid[] = 84319; }
+	if ($expertise=='web') { $expertiseid[] = 96198; }
    }
    
    $expertisestring = "";
@@ -95,11 +111,33 @@ function karma_form_submit_handler($form, &$form_state) {
 	 $expertisestring .= $eid;
    }
    
-   dpm($expertisestring);
-   
-   $data = 'api_token=tD8wH8TgdcgpzBEbv17X'.$industrystring.''.$expertisestring.'&contact[field_values][][field_type_id]=5&contact[field_values][][field_id]=84247&contact[field_values][][value]='.$uniq.'&contact[first_name]='.$first_name.'&contact[field_values][][field_type_id]=2&contact[field_values][][field_parent_id]=16893&contact[field_values][][field_id]='.$locationid.'&contact[last_name]='.$last_name.'&contact[secondary_emails][][email]='.$email.'&contact[secondary_emails][][secondary_email_type_id]=1&contact[phone_numbers][][number]='.$phone.'&contact[phone_numbers][][phone_number_type_id]=1&contact[field_values][][field_type_id]=3&contact[social_accounts][][name]='.$skype.'&contact[social_accounts][][social_account_type_id]=82&contact[company][name]='.$company.'&contact[field_values][][field_type_id]=5&contact[field_values][][field_id]=84306&contact[field_values][][value]='.$capabilities.'&contact[secondary_websites][][url]='.$linkedin.'&contact[secondary_websites][][secondary_website_type_id]=3&contact[position]='.$position;
+   $capabilityid = array();
+   foreach ($capabilities as $capability) {	
+	if ($capability=='angel') { $capabilityid[] = 96200; }
+	if ($capability=='consulting') { $capabilityid[] = 96203; }
+	if ($capability=='founder') { $capabilityid[] = 96206; }
+	if ($capability=='legal') { $capabilityid[] = 96204; }
+	if ($capability=='mentor') { $capabilityid[] = 96205; }
+	if ($capability=='owner') { $capabilityid[] = 96207; }
+	if ($capability=='capital') { $capabilityid[] = 96201; }
+	if ($capability=='mgmt') { $capabilityid[] = 96202; }
+   }
 
-   dpm($data);
+   $capabilitystring = "";
+   foreach ($capabilityid as $cid) {
+     $capabilitystring .=  "&contact[field_values][][field_parent_id]=96199&contact[field_values][][field_type_id]=3&contact[field_values][][field_id]=";
+	 $capabilitystring .= $cid;
+   }   
+	
+   $data = 'api_token=tD8wH8TgdcgpzBEbv17X'.$industrystring.''.$expertisestring''.$capabilitystring'
+   &contact[field_values][][field_type_id]=5&contact[field_values][][field_id]=84247&contact[field_values][][value]='.$uniq.'
+   &contact[first_name]='.$first_name.'
+   &contact[field_values][][field_type_id]=2&contact[field_values][][field_parent_id]=16893&contact[field_values][][field_id]='.$locationid.'
+   &contact[last_name]='.$last_name.'&contact[secondary_emails][][email]='.$email.'&contact[secondary_emails][][secondary_email_type_id]=1
+   &contact[phone_numbers][][number]='.$phone.'&contact[phone_numbers][][phone_number_type_id]=1
+   &contact[social_accounts][][name]='.$skype.'&contact[social_accounts][][social_account_type_id]=82
+   &contact[company][name]='.$company.'
+   &contact[secondary_websites][][url]='.$linkedin.'&contact[secondary_websites][][secondary_website_type_id]=3&contact[position]='.$position;
    
   $result = drupal_http_request(
     'https://api.karmacrm.com/api/v2/contacts.json',

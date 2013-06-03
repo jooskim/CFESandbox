@@ -59,13 +59,15 @@ h2 {
 	font-size: 1.5em;
 	margin: 0 !important;
 	padding: 0;
-	font-weight: 300;
+	/* font-weight: 300; */
+	font-weight: bold;
+	padding-bottom: 8px;
 }
 h3 {
 	font-size: 1.2em !important;
 	margin: 0 !important;
-	padding: 0px 0px 10px 0px;
-	font-weight: 300;
+	padding: 0px 0px 5px 0px;
+	font-weight: bold;
 }
 h4, .view-people .views-field-field-jobtitle {
 	font-size: 1.1em !important;
@@ -168,27 +170,33 @@ img.photo,
 
 .homepage .view-latest-event-image, .homepage .views-field-field-youtube {
 	position: relative;
-	float: left;
+	float: right;
 	clear: right;
 	display: inline-block;
 	margin: 0 10px 10px 0;
 	padding: 0;
 }
+.homepage .views-field-field-youtube {
+	float: inherit;
+}
+.sidebarMargin {
+	padding-left: 30px;
+}
 .homepage .views-row {
 	padding: 10px 0px 10px 0px;
 	margin: 0px 0px 10px 0px;
-	border-bottom: 1px solid #ccc;
+	/* border-bottom: 1px solid #ccc; */
 }
 .homepage .views-row-last {
 	border-bottom: none;
 }
 aside {
 	position: relative;
-	left: 30px;
 	display: inline;
-	float: right;
-	clear: right;
-	width: 280px;
+	left: -30px;
+	float: left;
+	clear: left;
+	width: 290px;
 }
 .row {
 	display: block;
@@ -547,15 +555,23 @@ footer {
 	z-index: 95;
 }
 
+/* Shorten the top margin of <p> tag on page-node views*/
+body.page-node p {
+	margin-top: 5px;
+}
+
 /* Home Page */
 #block-block-2 { /* Twitter Feed */
 	position: relative;
 	top: -15px;
-	background: url(components/background-special-column.gif) top left no-repeat;
-	padding: 10px 10px 10px 20px;
+	/* background: url(components/background-special-column.gif) top left no-repeat; */
+	padding: 10px 10px 10px 0px;
 	min-height: 360px;
 	overflow: auto;
 	font-size: .9em;
+}
+#block-block-2 div.tweets-pulled-listing {
+	padding-top: 10px;
 }
 #block-block-2 li {
 	list-style-type: none;
@@ -565,6 +581,25 @@ footer {
 	padding: 10px;
 }
 
+/* Landing Page Wallpaper */
+.landingPageWall {
+	width: 100%;
+	height: 300px;
+}
+.wallTitle {
+	position: relative;
+	height: 30%;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-weight: 400;
+	font-size: 4em;
+	text-shadow: 0px 4px 4px #333333;
+	top: 215px;
+	color: white;
+}
+
+#landingPageParticipate .wallTitle {
+	left: 760px;
+}
 /* -- Sidebar styling starts here -- */
 
 /* Latest News and Events */
@@ -609,7 +644,10 @@ span.view-latest-event-title a {
 	font-size: 0.8em;
 	color: white;
 }
-
+/* Events page - archive styling */
+.page-events- .view-events .view-display-id-attachment_1 h2 {
+	
+}
 /* Latest Video */
 #block-views-latest-event-block-3 h2 {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -685,9 +723,33 @@ span.view-latest-event-title a {
 	width: 238px;
 	border: 1px solid #000;
 }
-
+body.page-frontpage .views-row .views-field-field-image img {
+	padding: 5px;
+	box-shadow: 0 0 5px 0 #777777;
+}
+body.page-frontpage .views-field-field-published {
+	font-style: italic;
+	font-size: 0.9em;
+}
 /* -- Sidebar styling ends here -- */
 
+/* Students Groups - Image layout */
+.view-resources .floatRight {
+	float:right;
+}
+
+/* Teaching Resources */
+.page-node-48 .field-name-body ul li {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.page-node-48 .field-name-body ul li ul {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.pade-node-48 .field-name-body .field-items .field-item ul {
+	margin-top: 0px;
+}
 /* News and Resources Pages */
 .view-news .view-content ul {
 	height: 100%;
@@ -696,7 +758,7 @@ span.view-latest-event-title a {
 .view-news .views-row,
 .view-entr407-videos .views-row,
 .view-entr407-bios .views-row,
-.view-people .views-row{
+.view-people .views-row, .view-events .views-row {
 	display: inline-block;
 	vertical-align: top;
 }
@@ -704,7 +766,7 @@ span.view-latest-event-title a {
 .view-news .views-row,
 .view-entr407-videos .views-row,
 .view-entr407-bios .views-row,
-.view-people .views-row {
+.view-people .views-row, .view-events .views-row {
 	list-style-type: none;
 	width: 31%;
 	padding: 0px 0px 10px 10px;
@@ -730,6 +792,11 @@ span.view-latest-event-title a {
 	box-shadow: 0 0 3px #000;
 	transition: all .2s;
 }
+.view-events .views-row:hover {
+	background-color: #f1f1f1;
+	box-shadow: 0 0 3px #000;
+	transition: all .2s;
+}
 .view-news .views-field {
 	margin: 10px 0;
 }
@@ -737,13 +804,16 @@ span.view-latest-event-title a {
 .node-entr407-recordings .field-type-image,
 .view-entr407-bios .views-field-field-image,
 .view-people .views-field-field-image,
-.page-student-groups .iews-field-field-image {
+.view-events .views-field-type-image {
 	position: relative;
 	float: left;
 	clear: right;
 	display: inline-block;
 	margin: 0 10px 10px 0;
 	padding: 0;
+}
+.page-student-groups .views-field-field-image {
+	float: right;
 }
 .node-type-article .field-type-image,
 .node-type-article-external- .field-type-image,
@@ -818,13 +888,13 @@ span.view-latest-event-title a {
 }
 
 /* Archive Block */
-.view-news .attachment .item-list ul {
+.view-news .attachment .item-list ul, .view-events .attachment .item-list ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.view-news .attachment .item-list ul li {
+.view-news .attachment .item-list ul li, .view-events .attachment .item-list ul li {
 	list-style: none;
 	margin: 0;
 	display: inline-block;
@@ -884,11 +954,11 @@ label.error {
 	float: left;
 	clear: right;
 }
-.form-type-checkbox {
+.form-type-checkbox, .webform-component-select {
 	position: relative;
 	float: left;
 	display: inline;
-	width: 170px !important;
+	width: 195px !important;
 	padding-right: 10px;
 }
 div#form_errors p {
