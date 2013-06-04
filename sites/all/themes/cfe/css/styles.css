@@ -37,8 +37,26 @@ a:link,
 a:visited {
 	color: #024b96;
 }
+h2 a,
+h2 a:link,
+h2 a:visited,
+h3 a,
+h3 a:link,
+h3 a:visited {
+	color: #00274c;
+}
 a:hover,
-a:active {
+a:active,
+h2 a:hover,
+h2 a:active,
+h3 a:hover,
+h3 a:active {
+	color: #0371E2;
+}
+h2 a:hover,
+h2 a:active,
+h3 a:hover,
+h3 a:active {
 	color: #0371E2;
 }
 .content li {
@@ -46,7 +64,7 @@ a:active {
 }
 h1,
 h2.title {
-	color: #024b96;
+	color: #00274c;
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 	font-size: 2.5em !important;
 	font-weight: 400;
@@ -54,18 +72,20 @@ h2.title {
 	padding: 0;
 }
 h2 {
-	color: #024b96;
+	color: #00274c;
 	/* font-family: 'Yanone Kaffeesatz', sans-serif; */
 	font-size: 1.5em;
 	margin: 0 !important;
 	padding: 0;
-	font-weight: 300;
+	/* font-weight: 300; */
+	font-weight: bold;
+	padding-bottom: 8px;
 }
 h3 {
 	font-size: 1.2em !important;
 	margin: 0 !important;
-	padding: 0px 0px 10px 0px;
-	font-weight: 300;
+	padding: 0px 0px 5px 0px;
+	font-weight: bold;
 }
 h4, .view-people .views-field-field-jobtitle {
 	font-size: 1.1em !important;
@@ -106,12 +126,20 @@ img.photo,
 	border-radius: 2px;
 	border: 1px solid #888;
 	background: #0371E2;
+	/*
 	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#0371E2', endColorstr='#024B96');
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#0371E2), to(#024B96));
 	background-image: -moz-linear-gradient(top, #0371E2, #024B96);
 	background-image: -o-linear-gradient(top, #0371E2, #024B96);
 	background-image: -webkit-linear-gradient(top, #0371e2, #024b96);
 	background-image: linear-gradient(to bottom, #0371e2, #024b96);
+	*/
+	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#024b96', endColorstr='#00274c');
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#024b96), to(#00274c));
+	background-image: -moz-linear-gradient(top, #024b96, #00274c);
+	background-image: -o-linear-gradient(top, #024b96, #00274c);
+	background-image: -webkit-linear-gradient(top, #024b96, #00274c);
+	background-image: linear-gradient(to bottom, #024b96, #00274c);
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
@@ -168,27 +196,33 @@ img.photo,
 
 .homepage .view-latest-event-image, .homepage .views-field-field-youtube {
 	position: relative;
-	float: left;
+	float: right;
 	clear: right;
 	display: inline-block;
 	margin: 0 10px 10px 0;
 	padding: 0;
 }
+.homepage .views-field-field-youtube {
+	float: inherit;
+}
+.sidebarMargin {
+	padding-left: 30px;
+}
 .homepage .views-row {
 	padding: 10px 0px 10px 0px;
 	margin: 0px 0px 10px 0px;
-	border-bottom: 1px solid #ccc;
+	/* border-bottom: 1px solid #ccc; */
 }
 .homepage .views-row-last {
 	border-bottom: none;
 }
 aside {
 	position: relative;
-	left: 30px;
 	display: inline;
-	float: right;
-	clear: right;
-	width: 280px;
+	left: -30px;
+	float: left;
+	clear: left;
+	width: 290px;
 }
 .row {
 	display: block;
@@ -307,17 +341,17 @@ header {
 	background-position: -141px 0;
 	margin-right: 8px;
 }
-navigation {
+#navigation {
 	position: absolute;
 	top: 50px;
-	right: auto;
+	left: 300px;
 	height: 35px;
 	width: 75%;
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 	font-size: 1.2em;
 	z-index: 102;
 }
-navigation ul {
+#navigation ul {
 	list-style: none;
 	list-style-type: none;
 	margin: 0;
@@ -325,27 +359,28 @@ navigation ul {
 	z-index: 110;
 	zoom: 1;
 }
-navigation .menu li {
+#navigation .menu li {
 	display: inline;
 	float: left;
 	position: relative;
 	margin: 0;
 }
-navigation li a:hover,
-navigation li a:active,
-navigation li a.selected,
-navigation li a.active,
-navigation li a.active-trail {
-	background-color: #024b96;
+#navigation li a:hover,
+#navigation li a:active,
+#navigation li a.selected,
+#navigation li a.active,
+#navigation li a.active-trail {
+	/* background-color: #024b96; */
+	background-color: #00274c;
 	color: #fff;
 }
-navigation .content > .menu > li > a  {
+#navigation .content > .menu > li > a  {
 	padding: 5px;
 }
-navigation ul li ul {
+#navigation ul li ul {
 	display: none;
 }
-navigation ul li:hover ul {
+#navigation ul li:hover ul {
 	display: block;
 	margin-top: 1%;
 	position: absolute;
@@ -354,7 +389,7 @@ navigation ul li:hover ul {
 	box-shadow: 0 0 5px #444;
 	z-index: 110;
 }
-navigation ul li:hover ul li {
+#navigation ul li:hover ul li {
 	/*clear: left;*/
 	text-decoration: none;
 	margin: 0;
@@ -368,20 +403,20 @@ navigation ul li:hover ul li {
 	width: 199px;
 	top: -2px;
 }
-navigation .menu .menu a {
+#navigation .menu .menu a {
 	width: 160px;
 	display: block;
 	margin: 0;
 	padding: .75em 1em;
 }
-navigation .menu .menu .collapsed: last-child a,
-navigation .menu .menu .leaf: last-child a {
+#navigation .menu .menu .collapsed: last-child a,
+#navigation .menu .menu .leaf: last-child a {
 	padding-bottom: 1em;
 }
-navigation .menu .menu li.expanded:hover {
+#navigation .menu .menu li.expanded:hover {
 	left: 0px;
 }
-navigation .menu .menu .expanded .menu {
+#navigation .menu .menu .expanded .menu {
     box-shadow: 0 0 5px #444;
     display: none;
 	position: absolute;
@@ -547,15 +582,23 @@ footer {
 	z-index: 95;
 }
 
+/* Shorten the top margin of <p> tag on page-node views*/
+body.page-node p {
+	margin-top: 5px;
+}
+
 /* Home Page */
 #block-block-2 { /* Twitter Feed */
 	position: relative;
 	top: -15px;
-	background: url(components/background-special-column.gif) top left no-repeat;
-	padding: 10px 10px 10px 20px;
+	/* background: url(components/background-special-column.gif) top left no-repeat; */
+	padding: 10px 10px 10px 0px;
 	min-height: 360px;
 	overflow: auto;
 	font-size: .9em;
+}
+#block-block-2 div.tweets-pulled-listing {
+	padding-top: 10px;
 }
 #block-block-2 li {
 	list-style-type: none;
@@ -565,6 +608,25 @@ footer {
 	padding: 10px;
 }
 
+/* Landing Page Wallpaper */
+.landingPageWall {
+	width: 100%;
+	height: 300px;
+}
+.wallTitle {
+	position: relative;
+	height: 30%;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-weight: 400;
+	font-size: 4em;
+	text-shadow: 0px 4px 4px #333333;
+	top: 215px;
+	color: white;
+}
+
+#landingPageParticipate .wallTitle {
+	left: 760px;
+}
 /* -- Sidebar styling starts here -- */
 
 /* Latest News and Events */
@@ -576,8 +638,9 @@ footer {
 }
 #block-views-latest-event-block-1 .newsItem {
 	margin-top: 6px;
-	background-color: rgba(0, 75, 150, 0.7);
+	background-color: #00274c;
 	width: 240px;
+	text-shadow: 1px 1px 2px #333333;
 }
 #block-views-latest-event-block-1 img {
 	width: 220px;
@@ -593,7 +656,7 @@ span.view-latest-event-title a {
 	display: inline-block;
 	position: relative;
 	width: 210px;
-	
+
 	padding-top: 15px;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -602,14 +665,17 @@ span.view-latest-event-title a {
 #block-views-latest-event-block-1 .newsItem .views-field-field-published {
 	position: relative;
 	width: 210px;
-	
+
 	padding-bottom: 15px;
 	padding-left: 15px;
 	padding-right: 15px;
 	font-size: 0.8em;
 	color: white;
 }
+/* Events page - archive styling */
+.page-events- .view-events .view-display-id-attachment_1 h2 {
 
+}
 /* Latest Video */
 #block-views-latest-event-block-3 h2 {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -636,7 +702,8 @@ span.view-latest-event-title a {
 }
 #block-views-latest-event-block-3 #wrapTitleDate {
 	width: 210px;
-	background-color: rgba(0,75,150,0.7);
+	background-color: #00274c;
+	text-shadow: 1px 1px 2px #333333;
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-bottom: 15px;
@@ -646,7 +713,7 @@ span.view-latest-event-title a {
 #block-views-latest-event-block-3 #wrapTitleDate .field-content span {
 	font-size: 0.8em;
 	color: white;
-	
+
 }
 #block-views-latest-event-block-3 #wrapTitleDate h3 {
 	padding-bottom: 0px;
@@ -685,9 +752,33 @@ span.view-latest-event-title a {
 	width: 238px;
 	border: 1px solid #000;
 }
-
+body.page-frontpage .views-row .views-field-field-image img {
+	padding: 5px;
+	box-shadow: 0 0 5px 0 #777777;
+}
+body.page-frontpage .views-field-field-published {
+	font-style: italic;
+	font-size: 0.9em;
+}
 /* -- Sidebar styling ends here -- */
 
+/* Students Groups - Image layout */
+.view-resources .floatRight {
+	float:right;
+}
+
+/* Teaching Resources */
+.page-node-48 .field-name-body ul li {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.page-node-48 .field-name-body ul li ul {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.pade-node-48 .field-name-body .field-items .field-item ul {
+	margin-top: 0px;
+}
 /* News and Resources Pages */
 .view-news .view-content ul {
 	height: 100%;
@@ -696,7 +787,7 @@ span.view-latest-event-title a {
 .view-news .views-row,
 .view-entr407-videos .views-row,
 .view-entr407-bios .views-row,
-.view-people .views-row{
+.view-people .views-row, .view-events .views-row {
 	display: inline-block;
 	vertical-align: top;
 }
@@ -704,7 +795,7 @@ span.view-latest-event-title a {
 .view-news .views-row,
 .view-entr407-videos .views-row,
 .view-entr407-bios .views-row,
-.view-people .views-row {
+.view-people .views-row, .view-events .views-row {
 	list-style-type: none;
 	width: 31%;
 	padding: 0px 0px 10px 10px;
@@ -730,6 +821,11 @@ span.view-latest-event-title a {
 	box-shadow: 0 0 3px #000;
 	transition: all .2s;
 }
+.view-events .views-row:hover {
+	background-color: #f1f1f1;
+	box-shadow: 0 0 3px #000;
+	transition: all .2s;
+}
 .view-news .views-field {
 	margin: 10px 0;
 }
@@ -737,13 +833,16 @@ span.view-latest-event-title a {
 .node-entr407-recordings .field-type-image,
 .view-entr407-bios .views-field-field-image,
 .view-people .views-field-field-image,
-.page-student-groups .iews-field-field-image {
+.view-events .views-field-type-image {
 	position: relative;
 	float: left;
 	clear: right;
 	display: inline-block;
 	margin: 0 10px 10px 0;
 	padding: 0;
+}
+.page-student-groups .views-field-field-image {
+	float: right;
 }
 .node-type-article .field-type-image,
 .node-type-article-external- .field-type-image,
@@ -818,13 +917,13 @@ span.view-latest-event-title a {
 }
 
 /* Archive Block */
-.view-news .attachment .item-list ul {
+.view-news .attachment .item-list ul, .view-events .attachment .item-list ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.view-news .attachment .item-list ul li {
+.view-news .attachment .item-list ul li, .view-events .attachment .item-list ul li {
 	list-style: none;
 	margin: 0;
 	display: inline-block;
@@ -884,11 +983,11 @@ label.error {
 	float: left;
 	clear: right;
 }
-.form-type-checkbox {
+.form-type-checkbox, .webform-component-select {
 	position: relative;
 	float: left;
 	display: inline;
-	width: 170px !important;
+	width: 195px !important;
 	padding-right: 10px;
 }
 div#form_errors p {
