@@ -15,7 +15,7 @@
 		});
 		*/
 		
-		// Fix IE8-related issues where the navigation menu breaks
+		/* Navigation brekage fix for IE7 and IE8 */
 		var browserName  = navigator.appName;
 		var verOffsetMSIE= navigator.userAgent.indexOf("MSIE");
 		var fullVerMSIE = navigator.userAgent.substring(verOffsetMSIE+5);
@@ -23,22 +23,15 @@
 		$('body').append(browserName + '<br>' + verMSIE);
 		
 		if(verOffsetMSIE != -1 && (verMSIE == '8.0' || verMSIE == '7.0')){
-			$('navigation li a').hover(function(){
-				$(this).css({'background-color': '#00274c', 'color': '#ffffff'});
+			$('#navigation ul li').hover(function(){
+				$('ul',this).css({'left':'-1px','top':'27px'});
 			});
-			$('navigation li a').mousedown(function(){
-				$(this).css({'background-color': '#00274c', 'color': '#ffffff'});
-			});
-			$('navigation ul li').hover(function(){
-				$('ul',this).css({
-				'display': 'block', 'margin-top': '1%', 'position': 'absolute', 'transition': 'all .2s ease-in-out', 'background': '#FFF', 'box-shadow': '0 0 5px #444', 'z-index': '110'});
-			$('ul li',this).css({'text-decoration': 'none', 'margin': '0', 'padding': '0', 'background': '#fff', 'width': 'auto', 'z-index': '120'});
-			});
-			$('navigation .menu .menu li.expanded').hover(function(){
-				$(this).css('left','0px');
-			});
+			//$('.menu .menu li.expanded').hover(function(){
+			//	$(this).parent().css('width','400px');
+			//});
+			
 		}
-		
+			
 		// Search bar hover show-and-hide
 		$('.search-container-inside').hover(
 			function() {
@@ -52,7 +45,7 @@
 			}
           );
 
-        $('navigation .expanded .expanded').hover(
+        $('#navigation .expanded .expanded').hover(
             function() {
                 $(this).children('.menu').show();
             }, function() {
