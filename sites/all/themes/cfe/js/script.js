@@ -15,21 +15,41 @@
 		});
 		*/
 		
-		/* Navigation brekage fix for IE7 and IE8 */
 		var browserName  = navigator.appName;
 		var verOffsetMSIE= navigator.userAgent.indexOf("MSIE");
 		var fullVerMSIE = navigator.userAgent.substring(verOffsetMSIE+5);
 		var verMSIE = fullVerMSIE.substring(0,fullVerMSIE.indexOf(';'));
+
+		/* Alert the users using IE7 about the browser incompatibility issues */
+		if(verOffsetMSIE != -1 && verMSIE == '7.0'){
+			$('#page_contents').prepend('<div style="position:relative; width: 0; height:0; z-index:170;"><div id="warningLayer" style="position: relative; width: 650px; height:auto; left: 160px; top: -180px; padding:10px; background-color: #000000; color: #ffffff; border: 1px solid #353535; filter: alpha(opacity=80);"><h1 style="color: #ffffff">We are sorry</h1><br>The browser you are using (Microsoft Internet Explorer 7) does not display our website in the best view, which may cause some features to function in unexpected ways. We recommend that you upgrade your browser to Microsoft Internet Explorer 8+ or other browsers such as Google Chrome. We are very sorry for your inconvenience and we will work on these browser incompatibility issues soon.<br><br><form id="form_DontShowMe"><input type="button" id="dontShowMe" style="width:150px" name="dontShowMe" value="Do not show this for a week"><input type="button" style="width:150px" id="closeWarning" value="Close"></form></div></div>');
+			
+			if($.cookies.get('donotshow') == 1){
+				$('#warningLayer').hide();
+			}
+			
+			$('#closeWarning').click(function(){
+				$('#warningLayer').hide();
+				$('body').append($.cookies.get('donotshow'));
+			});
+		
+			$('#dontShowMe').click(function(){
+				$('#warningLayer').hide();
+				$.cookies.set('donotshow','1',{hoursToLive: 168});
+			});
+
+		}
+		
 		$('body').append(browserName + '<br>' + verMSIE);
 		
-		if(verOffsetMSIE != -1 && (verMSIE == '8.0' || verMSIE == '7.0')){
+		/* Navigation breakage fix IE7: IT WORKS, BUT NOT TO THE FULLY SATISFACTORY EXTENT... SHOULD BE WORKED ON LATER */
+		if(verOffsetMSIE != -1 && (verMSIE == '7.0')){
 			$('#navigation ul li').hover(function(){
 				$('ul',this).css({'left':'-1px','top':'27px'});
 			});
-			//$('.menu .menu li.expanded').hover(function(){
-			//	$(this).parent().css('width','400px');
-			//});
-			
+			$('.menu .menu li.expanded').hover(function(){
+				$(this).parent().css('width','auto');
+			});
 		}
 			
 		// Search bar hover show-and-hide

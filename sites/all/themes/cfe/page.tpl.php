@@ -1,5 +1,7 @@
 <?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/script.js'); ?>
 <?php drupal_add_js('http://code.jquery.com/color/jquery.color-2.1.2.min.js'); ?>
+<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/IE9.js'); ?>
+<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/jquery.cookies.2.2.0.min.js'); ?>
 <?php drupal_add_library('system', 'ui'); ?>
 
 <!-- Top Navigation: Start -->
