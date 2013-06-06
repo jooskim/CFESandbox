@@ -1,4 +1,8 @@
 /* General */
+.ie8 .region-sidebar-first {
+	position:relative;
+	top: -25px;
+}
 html,
 body {
 	height: 100%;
@@ -193,7 +197,9 @@ img.photo,
 #page_contents.homepage {
 	padding-top: 473px;
 }
-
+#page_contents.homepage #block-block-2 {
+	height: 650px;
+}
 .homepage .view-latest-event-image, .homepage .views-field-field-youtube {
 	position: relative;
 	float: right;
@@ -617,6 +623,7 @@ body.page-node p {
 .landingPageWall {
 	width: 100%;
 	height: 300px;
+	overflow: hidden;
 }
 .wallTitle {
 	position: relative;
@@ -907,7 +914,15 @@ body.page-frontpage .views-field-field-published {
 .view-classes .views-row {
 	padding: 0px 0px 10px 0px;
 }
-
+.views-field-field-syllabus .field-content a {
+	color: #0d57aa;
+	border-bottom: 1px dotted #0d57aa;
+}
+.views-field-field-syllabus .field-content a:hover,
+.views-field-field-syllabus .field-content a:active {
+	color: #0371E2;
+	border-bottom: 1px dotted #0371E2;
+}
 /* scrollToTop layer */
 #page_contents .col_1 #scrollToTop {
 	position: relative;

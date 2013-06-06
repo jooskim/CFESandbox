@@ -13,7 +13,9 @@
 </head>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 8]><!-->
+<body class="no-js ie8 <?php print $classes; ?>" <?php print $attributes;?>>
+<!--<![endif]-->
 <!--[if gt IE 8]><!--> 
 <body class="no-js <?php print $classes; ?>" <?php print $attributes;?>>
 <!--<![endif]-->

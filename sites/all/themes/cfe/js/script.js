@@ -30,7 +30,7 @@
 			
 			$('#closeWarning').click(function(){
 				$('#warningLayer').hide();
-				$('body').append($.cookies.get('donotshow'));
+				//$('body').append($.cookies.get('donotshow'));
 			});
 		
 			$('#dontShowMe').click(function(){
@@ -40,7 +40,7 @@
 
 		}
 		
-		$('body').append(browserName + '<br>' + verMSIE);
+		//$('body').append(browserName + '<br>' + verMSIE);
 		
 		/* Navigation breakage fix IE7: IT WORKS, BUT NOT TO THE FULLY SATISFACTORY EXTENT... SHOULD BE WORKED ON LATER */
 		if(verOffsetMSIE != -1 && (verMSIE == '7.0')){
@@ -221,12 +221,7 @@
 			$('#page_contents .region-sidebar-first .#block-block-2 .content div[class=tweets-pulled-listing]').after("<br>"+videoContent);
 		}
 		/* -- Sidebar styling ends here -- */
-		
-		/* -- Classes page: Change the style of 'Link to Syllabus' links so that they stand out more -- */
-		if($('body').hasClass('page-classes')){
-			$('.views-field-field-syllabus .field-content a').css({'color':'#0d57aa', 'border-bottom':'1px dotted #0d57aa'});
-		}
-		
+			
 		/* -- Archive view layout in News page / Events page starts here -- */
 		if($('body').hasClass('page-news-') || $('body').hasClass('page-events-')){
 			var loc = location.href.split('/');
@@ -355,7 +350,7 @@
 		
 		$('h2[class=title]',col2).hide();
 		var bg = $('.field-type-image img',col2).attr('src');
-		$('.landingPageWall').attr('style','background-image:'+'url('+bg+'); background-size: cover; background-position: center;');
+		$('.landingPageWall').attr('style','background-image:'+'url('+bg+'); background-size: cover; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='+bg+', sizingMethod="scale"); background-position: center;');
 		//var timerTest;
 		//$('.landingPageWall').mousemove(function(e){
 		//	var originY, offset;

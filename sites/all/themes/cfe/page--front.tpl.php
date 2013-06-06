@@ -1,7 +1,9 @@
+<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/css3-mediaqueries.js'); ?>
+<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/IE9.js'); ?>
+<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/html5shiv.js'); ?>
+<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/jquery.cookies.2.2.0.min.js'); ?>
 <?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/script.js'); ?>
 <?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/slideshow.js'); ?>
-<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/IE9.js'); ?>
-<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/jquery.cookies.2.2.0.min.js'); ?>
 <?php drupal_add_library('system', 'ui'); ?>
 
 <!-- Top Navigation: Start -->
