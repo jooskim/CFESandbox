@@ -15,6 +15,10 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]><!-->
 <body class="no-js ie8 <?php print $classes; ?>" <?php print $attributes;?>>
+<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/css3-mediaqueries.js'); ?>
+<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/IE9.js'); ?>
+<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/html5shiv.js'); ?>
+<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/jquery.cookies.2.2.0.min.js'); ?>
 <!--<![endif]-->
 <!--[if gt IE 8]><!--> 
 <body class="no-js <?php print $classes; ?>" <?php print $attributes;?>>

@@ -51,7 +51,7 @@
 				$(this).parent().css('width','auto');
 			});
 		}
-			
+		
 		// Search bar hover show-and-hide
 		$('.search-container-inside').hover(
 			function() {
@@ -221,16 +221,29 @@
 			$('#page_contents .region-sidebar-first .#block-block-2 .content div[class=tweets-pulled-listing]').after("<br>"+videoContent);
 		}
 		/* -- Sidebar styling ends here -- */
+		
+		/* Match the links of the thumbnail images on News and Events pages with those of the titles */
+		if($('body').hasClass('page-press') || $('body').hasClass('page-events')){
+			$('.views-field-field-image a').each(function(){
+				$(this).attr('href', $(this).parent().parent().parent().find('.views-field-field-url a').attr('href'));
+			});
+		}
+		
+		/* Remove the 'button' classes from the titles on the News page and Events page */
+		if($('body').hasClass('page-press') || $('body').hasClass('page-events')){
+			$('a[class=button]','body').not('#scrollToTop a').removeClass('button');
+		}
 			
 		/* -- Archive view layout in News page / Events page starts here -- */
-		if($('body').hasClass('page-news-') || $('body').hasClass('page-events-')){
+		if($('body').attr('class').indexOf('page-press-') != -1 || $('body').attr('class').indexOf('page-events-') != -1){
 			var loc = location.href.split('/');
-			var year = parseInt((loc[loc.length-1]/100));
-			var month = parseInt(loc[loc.length-1]) % year;
+			var year = parseInt((loc[loc.length-1].substr(0,loc[loc.length-1].indexOf('-'))));
+			var month = parseInt(loc[loc.length-1].substr(loc[loc.length-1].indexOf('-')+1));
 			var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 			
-			$('.wrapper #page_contents .col_2 .content .view-display-id-attachment_1','body').empty();
-			$('.wrapper #page_contents .col_2 .content .view-display-id-attachment_1','body').append("<h2>"+monthNames[month-1]+" "+year+"</h2>");
+			//$('.wrapper #page_contents .col_2 .content .view-display-id-attachment_1','body').empty();
+			$('.wrapper #page_contents .col_2 .content .view-display-id-attachment_1','body').prepend("<h2>"+monthNames[month-1]+" "+year+"</h2>");
+			
 		}
 		/* -- Archive view layout in News page ends here -- */
 		
