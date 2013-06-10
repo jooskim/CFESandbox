@@ -1,0 +1,35 @@
+<?php
+
+function import_thomas() {
+  $page = db_query("SELECT post_date, post_title, post_content, guid FROM wp_posts WHERE post_author = 2 AND post_type = 'post' AND post_status = 'publish' ORDER BY post_date DESC")->fetchAssoc();
+	$page['author'] = 'thomas';
+	$page['author_name'] = 'Thomas Zurbuchen';
+	$page['post_title'] = str_replace(" ~ by Thomas Zurbuchen", "", $page['post_title']);
+	$page['blog_name'] = 'From the Associate Dean';
+  return $page;
+}
+
+function import_doug() {
+  $page = db_query("SELECT post_date, post_title, post_content, guid FROM wp3dblog_posts WHERE post_author = 2 AND post_type = 'post' AND post_status = 'publish' ORDER BY post_date DESC")->fetchAssoc();
+	$page['author'] = 'doug';
+	$page['author_name'] = 'Doug Neal';
+	$page['blog_name'] = 'Director\'s Blog';
+  return $page;
+}
+
+function import_blog() {
+	$blogs = array();
+	$thomas = import_thomas();
+	$doug = import_doug();
+	if ($thomas['post_date'] > $doug['post_date']) {
+		$blogs[] = $thomas;
+		$blogs[] = $doug;
+	}
+	else {
+		$blogs[] = $doug;
+		$blogs[] = $thomas;
+	}
+	return $blogs;
+}
+
+?>

@@ -1,0 +1,3 @@
+name = Import Wordpress Blog
+description = Fetches blog posts by Thomas or Doug
+core = 7.x
