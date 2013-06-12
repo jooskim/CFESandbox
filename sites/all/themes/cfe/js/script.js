@@ -237,6 +237,7 @@
 		/* -- Archive view layout in News page / Events page starts here -- */
 		if($('body').attr('class').indexOf('page-press-') != -1 || $('body').attr('class').indexOf('page-events-') != -1){
 			var loc = location.href.split('/');
+			$('hr','div[class=view-footer]').remove();
 			var year = parseInt((loc[loc.length-1].substr(0,loc[loc.length-1].indexOf('-'))));
 			var month = parseInt(loc[loc.length-1].substr(loc[loc.length-1].indexOf('-')+1));
 			var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -332,6 +333,7 @@
 			});
 		}
 		
+		
 	/* -- Landing page layout starts here -- */
 	if($('body').hasClass('page-node-') && $('body').hasClass('node-type-page') && ($('body').hasClass('page-node-40') || $('body').hasClass('page-node-236') || $('body').hasClass('page-node-325') || $('body').hasClass('page-node-29') || $('body').hasClass('page-node-237') || $('body').hasClass('page-node-47') || $('body').hasClass('page-node-62') || $('body').hasClass('page-node-238'))){
 		var col2 = $('#page_contents .col_2');
@@ -385,7 +387,80 @@
 	}
 
 	/* -- Landing page layout ends here -- */
+	
+	/* -- Partners page UL/LI styling -- */
+	if($('body').hasClass('page-partners')){
+		$('.item-list ul').css('margin-left','10px');
+		$('.item-list li').css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
+		$('.item-list li').click(function(){
+			location.href = $('a',$(this)).attr('href');
+		});
+		$('.item-list li').hover(function(){
+			$(this).css('background-color','#ffcb05');
+		},function(){
+			$(this).css('background-color','#f3f3f3');
+		});
+		$('.item-list li').before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
+	}
 
+	/* -- Competitions and Conferences page UL/LI styling -- */
+	if($('body').hasClass('page-competitions-conferences')){
+		$('.item-list ul').css('margin-left','10px');
+		$('.item-list li').css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
+		$('.item-list li').click(function(){
+			location.href = $('a',$(this)).attr('href');
+		});
+		$('.item-list li').hover(function(){
+			$(this).css('background-color','#ffcb05');
+		},function(){
+			$(this).css('background-color','#f3f3f3');
+		});
+		$('.item-list li').before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
+		
+	}
+	
+	/* -- Resources page UL/LI styling -- */
+	if($('body').hasClass('page-resources')){
+		$('.item-list ul').css('margin-left','10px');
+		$('.item-list li').css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
+		$('.item-list li').click(function(){
+			location.href = $('a',$(this)).attr('href');
+		});
+		$('.item-list li').hover(function(){
+			$(this).css('background-color','#ffcb05');
+		},function(){
+			$(this).css('background-color','#f3f3f3');
+		});
+		$('.item-list li span.views-field-field-region').css({'float':'right','font-weight':'100','font-style':'italic','font-size':'14px','color':'#666666'});
+		$('.item-list li').before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
+		
+	}
+	/* -- Teaching Resources page UL/LI styling -- */
+	if($('body').hasClass('page-node-48')){
+		var scope = $('#page_contents .col_2 #node-48 .content');
+		$('ul',scope).css({'margin-left':'10px','padding':'0'});
+		$('li',scope).not('.ext').css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
+		$('li',scope).not('.ext').before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px; display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
+		
+		$('li',scope).click(function(){
+			location.href = $('a',$(this)).attr('href');
+		});
+		$('li',scope).not('.ext').hover(function(){
+			$(this).css('background-color','#ffcb05');
+		},function(){
+			$(this).css('background-color','#f3f3f3');
+		});
+		$('li.ext',scope).hover(function(){
+			$(this).css('background-color','#ffcb05');
+		},function(){
+			$(this).css('background-color','#e0e0e0');
+		});
+		
+		$('ul li ul',scope).css({'margin-top':'5px','margin-left':'5px','padding':'0'});
+		$('ul li ul li',scope).css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#e0e0e0','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
+		$('ul li ul li',scope).before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px; display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
+	}
+	
 	}); // ready
 	
 }(jQuery));

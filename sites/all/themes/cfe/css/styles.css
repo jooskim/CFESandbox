@@ -1,8 +1,4 @@
 /* General */
-.ie8 .region-sidebar-first {
-	position:relative;
-	top: -25px;
-}
 html,
 body {
 	height: 100%;
@@ -397,8 +393,11 @@ header {
 	transition: all .2s ease-in-out;
 	background: #FFF;
 	box-shadow: 0 0 5px #444;
+	-moz-box-shadow: 0 0 5px #444;
+	-webkit-box-shadow: 0 0 5px #444;
 	width: 198px;
 	z-index: 110;
+	
 }
 #navigation ul li:hover ul li {
 	/* clear: left; */
@@ -432,6 +431,8 @@ header {
     display: none;
 	position: absolute;
 	left: 100%;
+	-moz-box-shadow: 0 0 5px #444;
+	-webkit-box-shadow: 0 0 5px #444;
 }
 #google-appliance-block-form input[type="submit"] {
 	display: none;
@@ -601,9 +602,9 @@ body.page-node p {
 /* Home Page */
 #block-block-2 { /* Twitter Feed */
 	position: relative;
-	top: -15px;
+	top: -6px;
 	/* background: url(components/background-special-column.gif) top left no-repeat; */
-	padding: 10px 10px 10px 0px;
+	padding: 0px 10px 10px 0px;
 	min-height: 360px;
 	overflow: auto;
 	font-size: .9em;
@@ -887,6 +888,9 @@ body.page-frontpage .views-field-field-published {
 }
 
 /* People  Pages */
+a.scrollToTarget {
+	cursor: pointer;
+}
 .view-people .view-content .views-field-title, .field-name-field-job {
 	font-weight: bold;
 }
@@ -1040,6 +1044,49 @@ td.spec {
 	line-height: 16px;
 }
 
+/* Newsletter */
+#newsletterArchive ul {
+	margin: 0;
+	padding: 0 0 0 12px;
+}
+#newsletterArchive ul li.bullet {
+	list-style: none;
+	cursor: pointer;
+	width: 95%;
+	height: 20px;
+	background-color: #f3f3f3;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 5px;
+}
+#newsletterArchive ul li.content {
+	list-style: none;
+	cursor: pointer;
+	width: 95%;
+	height: 20px;
+	background-color: #f3f3f3;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+}
+#newsletterArchive ul li:hover {
+	background-color: #ffcb05;
+}
+#newsletterArchive ul li .nlTitle {
+	font-size: 14px;
+	font-weight: normal;
+}
+#newsletterArchive ul li .nlDate {
+	font-weight: 100;
+	font-size: 14px;
+	float: right;
+	font-style:italic;
+	color: #666;
+}
 /*!
  * Bootstrap v2.3.1
  *
