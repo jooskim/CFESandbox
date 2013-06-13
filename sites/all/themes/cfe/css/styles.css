@@ -371,11 +371,14 @@ header {
 #navigation li a {
 	background-color: #fff;
 }
-#navigation li a:hover,
-#navigation li a:active,
-#navigation li a.selected,
 #navigation li a.active,
 #navigation li a.active-trail {
+	background-color: #024b96;
+	color: #fff;
+}
+#navigation li a:hover,
+#navigation li a:active,
+#navigation li a.selected {
 	/* background-color: #024b96; */
 	background-color: #00274c;
 	color: #fff;
@@ -651,7 +654,7 @@ body.page-node p {
 }
 #block-views-latest-event-block-1 .newsItem {
 	margin-top: 6px;
-	background-color: #00274c;
+	background-color: #024b96;
 	width: 240px;
 	text-shadow: 1px 1px 2px #333333;
 }
@@ -715,7 +718,7 @@ span.view-latest-event-title a {
 }
 #block-views-latest-event-block-3 #wrapTitleDate {
 	width: 210px;
-	background-color: #00274c;
+	background-color: #024b96;
 	text-shadow: 1px 1px 2px #333333;
 	padding-left: 15px;
 	padding-right: 15px;

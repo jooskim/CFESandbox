@@ -152,7 +152,7 @@
 			$(this).css({'background-color': '#ffcb05', 'text-shadow': '1px 1px 2px #ffffff'});
 		},function(){
 			$('a,span',this).css('color','#ffffff');
-			$(this).css({'background-color': '#00274c', 'text-shadow': '1px 1px 2px #333333'});
+			$(this).css({'background-color': '#024b96', 'text-shadow': '1px 1px 2px #333333'});
 		});
 		
 		$('#block-views-latest-event-block-3 #wrapTitleDate').hover(function(){
@@ -160,7 +160,7 @@
 			$(this).css({'background-color': '#ffcb05', 'text-shadow': '1px 1px 2px #ffffff'});
 		},function(){
 			$('a,span',this).css('color','#ffffff');
-			$(this).css({'background-color': '#00274c', 'text-shadow': '1px 1px 2px #333333'});
+			$(this).css({'background-color': '#024b96', 'text-shadow': '1px 1px 2px #333333'});
 		});
 		
 		// Play icon shows up on hovering over the thumbnail of the video
@@ -419,8 +419,8 @@
 		
 	}
 	
-	/* -- Resources page UL/LI styling -- */
-	if($('body').hasClass('page-resources')){
+	/* -- Resources, Grants and Researcher Grants pages UL/LI styling -- */
+	if($('body').hasClass('page-resources') || $('body').hasClass('page-researcher-grant') || $('body').hasClass('page-grants')){
 		$('.item-list ul').css('margin-left','10px');
 		$('.item-list li').css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
 		$('.item-list li').click(function(){
@@ -445,20 +445,14 @@
 		$('li',scope).click(function(){
 			location.href = $('a',$(this)).attr('href');
 		});
-		$('li',scope).not('.ext').hover(function(){
+		$('li',scope).hover(function(){
 			$(this).css('background-color','#ffcb05');
 		},function(){
 			$(this).css('background-color','#f3f3f3');
 		});
-		$('li.ext',scope).hover(function(){
-			$(this).css('background-color','#ffcb05');
-		},function(){
-			$(this).css('background-color','#e0e0e0');
-		});
 		
-		$('ul li ul',scope).css({'margin-top':'5px','margin-left':'5px','padding':'0'});
-		$('ul li ul li',scope).css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#e0e0e0','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
-		$('ul li ul li',scope).before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px; display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
+		$('li.ext',scope).css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'92%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
+		$('li.ext',scope).before('<li style="margin: 0; list-style: none; margin-left:26px; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px; display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
 	}
 	
 	}); // ready

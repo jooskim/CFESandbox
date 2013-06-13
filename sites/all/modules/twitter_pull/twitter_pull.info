@@ -2,6 +2,7 @@ name = Twitter Pull
 description = Pull Info from Twitter and Create Contextual Insets
 package = Other
 core = 7.x
+dependencies[] = libraries
 files[] = twitter_pull.module
 files[] = twitter_pull.install
 files[] = plugins/twitter_pull_box.inc

@@ -49,46 +49,67 @@ class twitter_puller {
     if ($prefix == '@' && $slash !== FALSE) {
       $username = drupal_substr($this->twitkey, 1, $slash - 1);
       $listname = drupal_substr($this->twitkey, $slash + 1);
-      $url = 'http://api.twitter.com/1/' . urlencode($username) . '/lists/' . urlencode($listname) . '/statuses.json?per_page=' . $num;
+      $url = 'https://api.twitter.com/1.1/lists/statuses.json';
+      $query = '?slug=' . urlencode($listname)
+        . '&owner_screen_name=' . urlencode($username);
+
     }
     // if the first character is @, then consider the key a username
     elseif ($prefix == "@") {
       $key = drupal_substr($this->twitkey, 1);
-      $url = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name='. urlencode($key) .'&include_rts=true&count='. $num;
+      $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+      $query = "?screen_name=${key}&count=${num}&include_rts=1";
     }
     // if the first character is ~, then consider the key a favorites feed
     elseif ($prefix == "~") {
       $key = drupal_substr($this->twitkey, 1);
-      $url = 'http://api.twitter.com/1/favorites/'.urlencode($key).'.json?count='.$num;
+      $url = 'https://api.twitter.com/1.1/favorites/list.json';
+      $query = "?screen_name=${key}&count=${num}";
     }
     // otherwise, use the key as a search term
     else {
       if ($num > 100) {
         $num = 100;
       }
-      $url = 'http://search.twitter.com/search.json?q=' . urlencode($this->twitkey) . '&rpp=' . $num;
+      $url = 'https://api.twitter.com/1.1/search/tweets.json';
+      $query = '?q=' . rawurlencode($this->twitkey) ."&include_entities=true&count=${num}";
     }
 
-    $ret = drupal_http_request($url, array('timeout' => 2));
-
-    if ($ret->code < 200 || $ret->code > 399) {
-      $errmsg = t('An unknown error occurred.');
-      if (isset($ret->error) && !empty($ret->error)) {
-        $errmsg = check_plain($ret->error);
-      }
-      elseif (isset($ret->data) && !empty($ret->data)) {
-        $errdata = json_decode($ret->data);
-        if (isset($errdata->error) && !empty($errdata->error)) {
-          $errmsg = check_plain($errmsg->error);
-        }
-      }
-      if ($ret->code == 400) {
-        $errmsg .= ' ' . t('This site may be subject to rate limiting. For more information, see: http://apiwiki.twitter.com/Rate-limiting');
-      }
-      throw new Exception(t('Could not retrieve data from Twitter.') . ' ' . $errmsg);
+    // Look for the twitter-api-lib, using libraries module if possible
+    // http://github.com/j7mbo/twitter-api-php
+    if (module_exists('libraries')) {
+      $lib = libraries_get_path('twitter-api-php');
+    }
+    //If libraries module is not available, try a common default location:
+    else {
+      $path_default = DRUPAL_ROOT . '/sites/all/libraries/twitter-api-php';
+      $lib = is_dir($path_default) ? $path_default : FALSE;
     }
 
-    $items = json_decode($ret->data);
+    if (!$lib) {
+      drupal_set_message(t('Please install TwitterAPIExchange as a library.  http://github.com/j7mbo/twitter-api-php'), 'error');
+      return;
+    }
+    require_once($lib . '/TwitterAPIExchange.php');
+    
+    $settings = array();
+    foreach (array('consumer_key', 'consumer_secret', 'oauth_access_token', 'oauth_access_token_secret') as $var) {
+      $settings[$var] = variable_get('twitter_pull_'.$var, FALSE);
+    }
+    
+    if (in_array(FALSE, $settings, TRUE)) {
+      drupal_set_message('Twitter has not been configured yet.  Please contact your admin.', 'error');
+      return;
+    }
+
+    $url = '' . $url;
+    
+    $twitter = new TwitterAPIExchange($settings);
+    $req = $twitter->setGetfield($query)
+      ->buildOauth($url, 'GET')
+      ->performRequest();
+    $items = json_decode($req);
+
     $this->parse_items($items);
 
   }
@@ -97,8 +118,8 @@ class twitter_puller {
     $tweets = array();
 
     //-- If search response then items are one level lower.
-    if (isset($items->results) && is_array($items->results)) {
-      $items = $items->results;
+    if (isset($items->statuses) && is_array($items->statuses)) {
+      $items = $items->statuses;
     }
 
     if (is_array($items)) {
