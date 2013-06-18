@@ -7,19 +7,22 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 	<title><?php print $head_title; ?></title>
+    <!--[if IE 8]>
+    <script src="<?=drupal_get_path('theme','cfe').'/js/css3-mediaqueries.js';?>"></script>
+    <script src="<?=drupal_get_path('theme','cfe').'/js/html5shiv.js';?>"></script>
+    <script src="<?=drupal_get_path('theme','cfe'),'/js/jquery.cookies.2.2.0.min.js';?>"></script>
+
+    <![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,700,300italic|Yanone+Kaffeesatz:300,200' rel='stylesheet' type='text/css'>
 	<?php print $styles; ?>
 	<?php print $scripts; ?>
 </head>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]><!-->
+<!--[if IE 8]>
 <body class="no-js ie8 <?php print $classes; ?>" <?php print $attributes;?>>
-<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/css3-mediaqueries.js'); ?>
-<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/IE9.js'); ?>
-<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/html5shiv.js'); ?>
-<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/jquery.cookies.2.2.0.min.js'); ?>
-<!--<![endif]-->
+
+<![endif]-->
 <!--[if gt IE 8]><!--> 
 <body class="no-js <?php print $classes; ?>" <?php print $attributes;?>>
 <!--<![endif]-->
