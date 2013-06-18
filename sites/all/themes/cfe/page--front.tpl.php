@@ -39,7 +39,7 @@
 					<?php
 						$i = 1;
 						foreach ($slides as $slide) {
-							echo "\n".'<li id="slideshow_thumbnail'.$i.'"><span><img src="'.$base_path.'images/featured/thumb/'.$slide['thumbnail'].'" width="172" height="96" /></span>';
+							echo "\n".'<li id="slideshow_thumbnail'.$i.'"><span><img src="'.$base_path.'images/featured/thumb/'.$slide['thumbnail'].'" width="172" height="96" /><span class="whiteCircle"></span></span>';
 							echo "\n".'<div class="caption">'.htmlspecialchars($slide['title']).'</div>';
 							if ($i == 1) echo "\n".'<div id="selected"></div>';
 							echo "\n".'</li>';

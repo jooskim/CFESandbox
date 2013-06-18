@@ -108,6 +108,7 @@ img.photo,
 	background-color: #FFF;
 	box-shadow: 1px 1px 6px 0 #888;
 	padding: 5px;
+    behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
 }
 
 /* Buttons */
@@ -124,6 +125,7 @@ img.photo,
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
+    behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
 	border: 1px solid #888;
 	background: #0371E2;
 	/*
@@ -134,7 +136,7 @@ img.photo,
 	background-image: -webkit-linear-gradient(top, #0371e2, #024b96);
 	background-image: linear-gradient(to bottom, #0371e2, #024b96);
 	*/
-	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#024b96', endColorstr='#00274c');
+	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff024b96', endColorstr='#ff00274c');
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#024b96), to(#00274c));
 	background-image: -moz-linear-gradient(top, #024b96, #00274c);
 	background-image: -o-linear-gradient(top, #024b96, #00274c);
@@ -191,7 +193,7 @@ img.photo,
 	min-height: 300px;
 }
 #page_contents.homepage {
-	padding-top: 473px;
+	padding-top: 323px;
 }
 #page_contents.homepage #block-block-2 {
 	height: 650px;
@@ -380,8 +382,8 @@ header {
 #navigation li a:active,
 #navigation li a.selected {
 	/* background-color: #024b96; */
-	background-color: #00274c;
-	color: #fff;
+	background-color: #ffcb05;
+	color: #00274c;
 }
 #navigation .content > .menu > li > a  {
 	padding: 5px;
@@ -398,6 +400,7 @@ header {
 	box-shadow: 0 0 5px #444;
 	-moz-box-shadow: 0 0 5px #444;
 	-webkit-box-shadow: 0 0 5px #444;
+    behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
 	width: 198px;
 	z-index: 110;
 	
@@ -436,6 +439,7 @@ header {
 	left: 100%;
 	-moz-box-shadow: 0 0 5px #444;
 	-webkit-box-shadow: 0 0 5px #444;
+    behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
 }
 #google-appliance-block-form input[type="submit"] {
 	display: none;
@@ -513,19 +517,26 @@ footer {
 	display: block;
 	margin: 0;
 	overflow: hidden;
-	padding: 20px 15px 10px 15px;
+	/* padding: 20px 15px 10px 15px; */
+    padding: 15px 10px 10px 20px;
 	position: absolute;
+    height: auto;
 	right: 20px;
-	top: 0;
-	width: 370px;
+	top: 20px;
+	width: 400px;
 	background: url('/img/home/black-trans50.png') repeat left top;
-	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.75);
-	-moz-box-shadow:    0 0 3px rgba(0, 0, 0, 0.75);
-	box-shadow:         0 0 3px rgba(0, 0, 0, 0.75);
+	/* -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.75); */
+	/* -moz-box-shadow:    0 0 3px rgba(0, 0, 0, 0.75); */
+	/* box-shadow:         0 0 3px rgba(0, 0, 0, 0.75); */
 }
 #slideshow_photos ul li span h2 {
 	color: #FFF;
 	text-shadow: 1px 1px 3px #333;
+    font-family: "Yanone Kaffeesatz";
+    font-size: 30px;
+    font-weight: normal;
+    behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
+    padding-bottom: 0;
 }
 #slideshow_photos ul li span h3 {
 	color: #DDD;
@@ -534,9 +545,10 @@ footer {
 }
 #slideshow_photos ul li span p {
 	color: #FFF;
-	padding: 15px 20px 0 0;
+	padding: 5px 20px 0 0;
 	text-shadow: 1px 1px 1px #333;
 	font-size: .9em;
+    text-align: justify;
 }
 #slideshow_photos ul li span p a {
 	display: block;
@@ -545,9 +557,9 @@ footer {
 }
 #slideshow_controls {
 	position: absolute;
-	top: 315px;
+	top: 255px;
 	display: block;
-	width: 1000px;
+
 	height: 133px;
 	margin: 0;
 	padding: 0 0 10px 0;
@@ -564,21 +576,49 @@ footer {
 	padding: 0 25px;
 }
 #slideshow_controls_thumbnails ul li {
-	background: url(components/background-slideshow-thumbnail.png) no-repeat;
+	/* background: url(components/background-slideshow-thumbnail.png) no-repeat; */
 	position: relative;
 	display: block;
 	float: left;
-	height: 129px;
-	width: 190px;
+	/* height: 129px;
+	width: 190px; */
 	margin: 0 auto;
 	z-index: 97;
 	cursor: pointer;
 	list-style: none;
 	list-style-type: none;
 }
+/* Slideshow thumbnails */
+#slideshow_controls_thumbnails img {
+    border-radius: 80px;
+    -moz-border-radius: 80px;
+    -webkit-border-radius: 80px;
+    behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
+    box-shadow: 0 2px 4px #000000;
+    -moz-box-shadow: 0 0 3px #000000;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+#slideshow_controls_thumbnails ul li span .whiteCircle {
+    position: relative;
+    border-radius: 80px;
+    -moz-border-radius: 80px;
+    -webkit-border-radius: 80px;
+    background-color: rgba(255,255,255,0.8);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCffffff,endColorstr=#CCffffff);
+    width:20px;
+    height:20px;
+    margin:0;
+    top:-25px;
+    left:1px;
+    behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
+}
 #slideshow_controls_thumbnails ul li span {
 	display: block;
 	margin: 5px;
+    height:20px;
 	position: relative;
 	z-index: 98;
 }
@@ -586,14 +626,17 @@ footer {
 	text-align: center;
 	color: #024b96;
 	font-size: .8em;
+
+    display: none;
 }
 #slideshow_controls_thumbnails ul li #selected {
-	background: url(components/slideshow-pointer.png) no-repeat;
-	display: block;
-	height: 17px;
-	width: 34px;
+	/* background: url(components/slideshow-pointer.png) no-repeat; */
+    background-color: #0371e2;
+	display: none;
+	height: 30px;
+	width: 30px;
 	margin-left: 74px;
-	margin-top: -136px;
+	/* margin-top: -136px; */
 	z-index: 95;
 }
 
@@ -636,6 +679,7 @@ body.page-node p {
 	font-weight: 400;
 	font-size: 4em;
 	text-shadow: 0px 4px 4px #333333;
+    behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
 	top: 215px;
 	color: white;
 }
@@ -724,6 +768,7 @@ span.view-latest-event-title a {
 	padding-right: 15px;
 	padding-bottom: 15px;
 	padding-top: 15px;
+    behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
 }
 
 #block-views-latest-event-block-3 #wrapTitleDate .field-content span {
@@ -840,6 +885,7 @@ body.page-frontpage .views-field-field-published {
 .view-news .views-row:hover {
 	background-color: #f1f1f1;
 	box-shadow: 0 0 3px #000;
+    behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
 	transition: all .2s;
 }
 .view-events .views-row:hover {
@@ -885,6 +931,7 @@ body.page-frontpage .views-field-field-published {
 .views-field-field-recording {
 	margin: 0 0 10px 0;
 	text-shadow: none;
+
 }
 .view-entr407-videos .views-field-field-image {
 	min-height: 100px;
