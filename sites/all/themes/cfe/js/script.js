@@ -451,8 +451,8 @@
 			$(this).css('background-color','#f3f3f3');
 		});
 		
-		$('li.ext',scope).css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'92%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
-		$('li.ext',scope).before('<li style="margin: 0; list-style: none; margin-left:26px; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px; display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
+		$('li.ext',scope).css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','text-indent':'30px','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
+		$('li.ext',scope).before('<li style="margin: 0; list-style: none; margin-left:0px; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px; display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
 	}
 	
 	}); // ready
