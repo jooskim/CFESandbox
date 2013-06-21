@@ -1,5 +1,6 @@
 <?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/script.js'); ?>
 <?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/slideshow.js'); ?>
+<?php drupal_add_js(drupal_get_path('theme','cfe') . '/js/jquery.easing.1.3.js'); ?>
 <?php drupal_add_library('system', 'ui'); ?>
 
 <!-- Top Navigation: Start -->
@@ -12,6 +13,8 @@
 
 		<!-- Slideshow: Start -->
 		<div id="slideshow">
+
+
 			<div id="slideshow_photos">
 				<ul>
 				<?php
@@ -42,7 +45,7 @@
 							echo "\n".'<li id="slideshow_thumbnail'.$i.'"><span><img src="'.$base_path.'images/featured/thumb/'.$slide['thumbnail'].'" width="172" height="96" /><span class="whiteCircle"></span></span>';
 							echo "\n".'<div class="caption">'.htmlspecialchars($slide['title']).'</div>';
 							if ($i == 1) echo "\n".'<div id="selected"></div>';
-							echo "\n".'</li>';
+							echo "\n".'<div class="slideTooltip"><div class="tooltipBody"></div><div class="tooltipArrow"></div></div></li>';
 							$i++;
 						}
 					?>

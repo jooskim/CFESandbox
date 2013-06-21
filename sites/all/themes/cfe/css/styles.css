@@ -482,6 +482,35 @@ footer {
 	position: relative;
 	width: 960px;
 }
+#slideshow #navControllerContainer {
+    position: relative;
+    width: 0;
+    height: 0;
+    top: 90px;
+    z-index: 100;
+}
+#slideshow #navControllerContainer #navLeft {
+    float: left;
+    position: relative;
+    width: 100px;
+    height: 120px;
+    background-color: rgba(255,255,255,0.7);
+    background-image: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/images/glyphicons_224_chevron-left.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#slideshow #navControllerContainer #navRight {
+    float: right;
+    position: relative;
+    width: 100px;
+    height: 120px;
+    top: -120px;
+    left: 1000px;
+    background-color: rgba(255,255,255,0.7);
+    background-image: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/images/glyphicons_223_chevron-right.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
 #slideshow_shadow_bottom {
 	background-image: url(components/shadow-slideshow-bottom.png);
 	background-repeat: repeat-x;
@@ -580,6 +609,7 @@ footer {
 	position: relative;
 	display: block;
 	float: left;
+    width: 30px;
 	/* height: 129px;
 	width: 190px; */
 	margin: 0 auto;
@@ -614,6 +644,35 @@ footer {
     top:-25px;
     left:1px;
     behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
+}
+#slideshow_controls_thumbnails .slideTooltip {
+    width: 0;
+    height: 0;
+    position: relative;;
+    z-index: 100;
+    top: -110px;
+    left: -10px;
+    opacity: 0;
+}
+#slideshow_controls_thumbnails .slideTooltip .tooltipArrow {
+    position: relative;
+    left: 15px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(255,255,255,0.85);
+}
+#slideshow_controls_thumbnails .slideTooltip .tooltipBody {
+    position: relative;
+    width: 130px;
+    font-family: Helvetica;
+    font-size: 12px;
+    padding: 8px;
+    letter-spacing: -1px;
+    background-color: rgba(255,255,255,0.85);
+
+
 }
 #slideshow_controls_thumbnails ul li span {
 	display: block;

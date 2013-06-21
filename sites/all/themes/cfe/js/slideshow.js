@@ -35,11 +35,19 @@
 		timer2 = setTimeout(function() {
 			autoslide(1);
 		}, 5000);
+
+
         $('#slideshow_controls_thumbnails ul li span .whiteCircle').show();
         $('#slideshow_controls_thumbnails ul li span .whiteCircle:eq(0)').hide();
 		
 		$('#slideshow_controls_thumbnails ul li').each(function(index) {
 			// Note: In this case slide index is 0-4
+            $(this).hover(function(){
+                $('.slideTooltip .tooltipBody',$(this)).html($('#slideshow #slideshow_photos li#slideshow_photo'+(index+1)+' h2').text());
+                $('.slideTooltip',$(this)).stop(true,true).animate({'opacity':'1'},250,'easeOutCirc');
+            },function(){
+                $('.slideTooltip',$(this)).stop(true,true).animate({'opacity':'0'},250,'easeOutCirc');
+            });
 
 			$(this).click(function() {
 				clearTimeout(timer1);
