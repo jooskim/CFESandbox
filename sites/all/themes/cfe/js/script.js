@@ -435,25 +435,89 @@
 		$('.item-list li').before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
 		
 	}
-	/* -- Teaching Resources page UL/LI styling -- */
-	if($('body').hasClass('page-node-48')){
-		var scope = $('#page_contents .col_2 #node-48 .content');
-		$('ul',scope).css({'margin-left':'10px','padding':'0'});
-		$('li',scope).not('.ext').css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
-		$('li',scope).not('.ext').before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px; display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
-		
-		$('li',scope).click(function(){
-			location.href = $('a',$(this)).attr('href');
-		});
-		$('li',scope).hover(function(){
-			$(this).css('background-color','#ffcb05');
-		},function(){
-			$(this).css('background-color','#f3f3f3');
-		});
-		
-		$('li.ext',scope).css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','text-indent':'30px','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
-		$('li.ext',scope).before('<li style="margin: 0; list-style: none; margin-left:0px; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px; display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
-	}
+        /* -- Student Groups pages UL/LI styling -- */
+        if($('body').hasClass('page-student-groups')){
+
+            $('.item-list li.views-row').each(function(){
+                $(this).after($('div.views-field-body',$(this)).html());
+                $(this).next('div').prepend($('.views-field-field-image',$(this)).html());
+                if($('.floatRight img', $(this).next('div')).html() != null){
+
+                }else{
+                    //$('.floatRight',$(this).next('div')).remove();
+                }
+                $('div.views-field-field-image',$(this)).remove();
+                $('div.views-field-body',$(this)).remove();
+
+            });
+
+            $('.item-list ul').css('margin-left','10px');
+            $('.item-list li').css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
+            $('.item-list li').click(function(){
+
+                //location.href = $('a',$(this)).attr('href');
+                var contentContainer = $(this).next('div');
+                if($(contentContainer).css('display') == 'none'){
+                    $(contentContainer).slideDown('fast');
+                }else{
+                    $(contentContainer).slideUp('fast');
+                }
+
+                ////////// FIX BUG HERE //////////
+
+
+            });
+            $('.item-list li').hover(function(){
+                $(this).css('background-color','#ffcb05');
+            },function(){
+                $(this).css('background-color','#f3f3f3');
+            });
+            $('.item-list li span.views-field-field-region').css({'float':'right','font-weight':'100','font-style':'italic','font-size':'14px','color':'#666666'});
+            $('.item-list li').before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
+
+        }
+
+        /* -- Blog page UL/LI styling -- */
+        if($('body').hasClass('page-blog') && $('body').attr('class').indexOf('page-blog-') < 0){
+            $('.item-list ul').css('margin-left','10px');
+            $('.item-list li').css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
+            $('.item-list li').click(function(){
+                location.href = $('a',$(this)).attr('href');
+            });
+            $('.item-list li').hover(function(){
+                $(this).css('background-color','#ffcb05');
+            },function(){
+                $(this).css('background-color','#f3f3f3');
+            });
+            $('.item-list li span.views-field-field-region').css({'float':'right','font-weight':'100','font-style':'italic','font-size':'14px','color':'#666666'});
+            $('.item-list li').before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
+
+        }
+
+	    /* -- Teaching Resources page UL/LI styling -- */
+        if($('body').hasClass('page-node-48')){
+            var scope = $('#page_contents .col_2 #node-48 .content');
+            $('ul',scope).css({'margin-left':'10px','padding':'0'});
+            $('li',scope).not('.ext').css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
+            $('li',scope).not('.ext').before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px; display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
+
+            $('li',scope).click(function(){
+                location.href = $('a',$(this)).attr('href');
+            });
+            $('li',scope).hover(function(){
+                $(this).css('background-color','#ffcb05');
+            },function(){
+                $(this).css('background-color','#f3f3f3');
+            });
+
+            $('li.ext',scope).css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','text-indent':'30px','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
+            $('li.ext',scope).before('<li style="margin: 0; list-style: none; margin-left:0px; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px; display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
+        }
+
+        /* -- Blog sub-header conditional statement -- */
+        if($('body').hasClass('page-blog') && $('body').attr('class').indexOf('page-blog-') < 0){
+            $('.col_2 .content .view-header h2').text('Posts by');
+        }
 	
 	}); // ready
 	
