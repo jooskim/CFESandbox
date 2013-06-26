@@ -147,7 +147,7 @@
 		$('#block-views-latest-event-block-3 .content .views-field-field-published').hide();
 		
 		// Highlight each item upon hovering
-		$('#block-views-latest-event-block-1 .newsItem').hover(function(){
+		$('#block-views-latest-event-block-1 .newsItem, #block-views-latest-event-block-2 .newsItem').hover(function(){
 			$('a,span',this).css('color','#00274c');
 			$(this).css({'background-color': '#ffcb05', 'text-shadow': '1px 1px 2px #ffffff'});
 		},function(){
@@ -197,11 +197,11 @@
 			}
 			
 			// need to check this again whether the code below breaks other pages that have 'page-node-' classes
-				if($('body').hasClass('page-node-') && ($('body').hasClass('page-node-40') || $('body').hasClass('page-node-236') || $('body').hasClass('page-node-325') || $('body').hasClass('page-node-29') || $('body').hasClass('page-node-237') || $('body').hasClass('page-node-47') || $('body').hasClass('page-node-62') || $('body').hasClass('page-node-238'))){
-					// when scroll goes below 300px, reset the col_1 location
-					if($(document).scrollTop() < 300){
-						$('.wrapper #page_contents .col_1').css("top",0);
-					}
+			if($('body').hasClass('page-node-') && ($('body').hasClass('page-node-40') || $('body').hasClass('page-node-236') || $('body').hasClass('page-node-325') || $('body').hasClass('page-node-29') || $('body').hasClass('page-node-237') || $('body').hasClass('page-node-47') || $('body').hasClass('page-node-62') || $('body').hasClass('page-node-238'))){
+				// when scroll goes below 300px, reset the col_1 location
+				if($(document).scrollTop() < 300){
+					$('.wrapper #page_contents .col_1').css("top",0);
+				}
 			
 				if($(document).height() > 1500 && $(document).scrollTop() >= 0 && scrollOffset >= 895 && $(document).scrollTop() > 300){
 					$('.wrapper #page_contents .col_1').css("top",$(document).scrollTop()-300);
@@ -211,6 +211,10 @@
 				if($(document).height() > 1200 && $(document).scrollTop() >= 0 && scrollOffset >= 895){
 					$('.wrapper #page_contents .col_1').css("top",$(document).scrollTop());
 				}
+
+                if($(document).height() <= 1200 && $('.wrapper #page_contents .col_1').css("top") != 0){
+                    $('.wrapper #page_contents .col_1').css("top",0);
+                }
 			}
 		});
 		
@@ -461,12 +465,11 @@
                     $(contentContainer).slideDown('fast');
                 }else{
                     $(contentContainer).slideUp('fast');
+
                 }
 
-                ////////// FIX BUG HERE //////////
-
-
             });
+
             $('.item-list li').hover(function(){
                 $(this).css('background-color','#ffcb05');
             },function(){
