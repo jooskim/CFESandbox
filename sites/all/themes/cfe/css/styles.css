@@ -1,7 +1,7 @@
 /* General */
 html,
 body {
-	height: 100%;
+	/* height: 100%; */
 	width: 100%;
 }
 body {
@@ -188,6 +188,25 @@ img.photo,
 	border: 1px solid #666;
 }
 
+.backBtn,
+.backBtn2 {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #eaeaea;
+    border: 1px solid #dedede;
+    cursor: pointer;
+    position: relative;
+    left: -5px;
+    margin-bottom: 9px;
+    margin-top: 5px;
+    display: inline-block;
+
+}
+.backBtn:hover {
+    background-color: #efefef;
+}
 /* Body Contents */
 #toolbar + header + #body_contents {
     top: 70px; /* Drupal toolbar hack to make the contents visible */
@@ -201,9 +220,7 @@ img.photo,
 #page_contents.homepage {
 	padding-top: 323px;
 }
-#page_contents.homepage #block-block-2 {
-	height: 650px;
-}
+
 .homepage .view-latest-event-image, .homepage .views-field-field-youtube {
 	position: relative;
 	float: right;
@@ -371,6 +388,28 @@ header {
 	zoom: 1;
 	-ms-zoom: 1;
 }
+#navigation .in {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #aaa;
+    width: 0;
+    height: 0;
+    position: relative;
+    z-index: 200;
+    left: 12px;
+    display: none;
+}
+#navigation .in .insideIn {
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid #fff;
+    width: 0;
+    height: 0;
+    position: relative;
+    left: -9px;
+    top: 1px;
+    z-index: 201;
+}
 #navigation .menu li {
 	display: block;
 	float: left;
@@ -398,6 +437,8 @@ header {
 #navigation ul li ul {
 	display: none;
     border: 1px solid #aaaaaa;
+    position: relative;
+    top: 31px;
 }
 #navigation ul li:hover ul {
 	display: block;
@@ -445,6 +486,7 @@ header {
     display: none;
 	position: absolute;
 	left: 100%;
+    top: -2px;
 	-moz-box-shadow: 0 3px 5px #444;
 	-webkit-box-shadow: 0 3px 5px #444;
     behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
@@ -456,14 +498,39 @@ header {
 footer {
 	display: block;
 	width: 100%;
-	margin-top: 50px;
-	padding-top: 20px;
+	margin-top: 40px;
+	padding-top: 55px;
 	position: relative;
 	z-index: 80;
 	overflow: hidden;
-	height: auto;
-	background: url(components/shadow-down.png) top left no-repeat;
+	height: 215px;
 
+}
+.footer_hr {
+    width: 90%;
+    left: 50px;
+    text-align: center;
+    position: relative;
+    height: 1px;
+    background-color: #aaaaaa;
+}
+.footer_hr .footer_logo {
+    position: relative;
+    width: auto;
+    top: -50px;
+}
+.footer_hr .footer_logo img {
+    width: 100px;
+    height: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #fff;
+}
+.footer_content {
+    text-align: center;
+    padding-top: 55px;
+    font-size: 0.9em;
+    color: #555;
 }
 .footer_col {
 	display: block;
@@ -759,6 +826,30 @@ body.page-node p {
 /* -- Sidebar styling starts here -- */
 
 /* Latest News and Events */
+.views-field-nid,
+.views-field-view-node {
+    display: none;
+}
+.editShortcutContainer {
+    position: relative;
+    width: 0;
+    height: 0;
+    top: -73px;
+    left: 5px;
+    display: none;
+}
+.editShortcut {
+    position: relative;
+}
+.editShortcut img {
+    padding: 15px;
+    background-color: #ffb515;
+    cursor: pointer;
+
+}
+.editShortcut img:hover {
+    box-shadow: inset 2px 2px 6px #b98211;
+}
 #block-views-latest-event-block-1 h2 {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 	font-weight: 400;
@@ -974,7 +1065,9 @@ body.page-frontpage .views-field-field-published {
 .view-people td.col-2:last-child {
 	margin-bottom: 10px;
 }
-.view-news .views-row:hover {
+/*
+.view-news .views-row:hover,
+.view-people .views-row:hover {
 	background-color: #f1f1f1;
 	box-shadow: 0 0 3px #000;
     behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
@@ -983,9 +1076,12 @@ body.page-frontpage .views-field-field-published {
 .view-events .views-row:hover {
 	background-color: #f1f1f1;
 	box-shadow: 0 0 3px #000;
+    behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
 	transition: all .2s;
 }
-.view-news .views-field {
+*/
+.view-news .views-field,
+.view-events .views-field {
 	margin: 10px 0;
 }
 .view-news .field-type-image,
