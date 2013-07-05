@@ -4,7 +4,7 @@
 <?php drupal_add_library('system', 'ui'); ?>
 
 <!-- Top Navigation: Start -->
-<?php if ($logged_in): ?>
+<?php //if ($logged_in): ?>
 <?php require_once('nav.tpl.php');?>
 <!-- Top Navigation: End -->
 
@@ -84,6 +84,8 @@
 </div>
 <!-- Body Contents: End -->
 
-<?php else: ?>
-  <p style="align: center;">Please <a href="/sandbox/user/login">log in</a> to view this site.</p>
-<?php endif; ?>
+<?php /* else:
+    echo('<p style="align: center;">Please <a href="/sandbox/user/login">log in</a> to view this site.</p>');
+ endif;
+ */
+?>
