@@ -140,8 +140,37 @@
 		/* -- Sidebar styling starts here -- */
 		
 		// Strap the news/event title and published date sections together as well as give it a link
-		$('#block-views-latest-event-block-1 .newsItem').css('cursor','pointer').click(function(){
-			location.href=$('.views-field-title span a',this).attr('href');
+		$('#block-views-latest-event-block-1 .newsItem, #block-views-latest-event-block-2 .newsItem').each(function(){
+            var origin;
+            if($('body').hasClass('page-press') || $('body').hasClass('page-press-tag')){
+                origin = '?origin=press';
+            }else if($('body').hasClass('page-videos') || $('body').hasClass('page-videos-tag')){
+                origin = '?origin=videos';
+            }else if($('body').hasClass('page-careers') || $('body').hasClass('page-careers-tag')){
+                origin = '?origin=careers';
+            }else if($('body').hasClass('page-events') || $('body').hasClass('page-events-tag')){
+                origin = '?origin=events';
+            }else{
+                origin='';
+            }
+            $('.views-field-title a',$(this)).attr('href', $('.views-field-title a',$(this)).attr('href')+origin);
+        });
+
+        $('#block-views-latest-event-block-1 .newsItem, #block-views-latest-event-block-2 .newsItem').css('cursor','pointer').click(function(){
+            var origin;
+            if($('body').hasClass('page-press') || $('body').hasClass('page-press-tag')){
+                origin = '?origin=press';
+            }else if($('body').hasClass('page-videos') || $('body').hasClass('page-videos-tag')){
+                origin = '?origin=videos';
+            }else if($('body').hasClass('page-careers') || $('body').hasClass('page-careers-tag')){
+                origin = '?origin=careers';
+            }else if($('body').hasClass('page-events') || $('body').hasClass('page-events-tag')){
+                origin = '?origin=events';
+            }else{
+                origin='';
+            }
+
+			location.href=$('.views-field-title span a',this).attr('href')+origin;
 		});
 		// Strap the youtube video title and published date sections together as well as give it a link
 		$('#block-views-latest-event-block-3 .content .views-field-title').before('<div id="wrapTitleDate">');
@@ -211,12 +240,12 @@
 					$('.wrapper #page_contents .col_1').css("top",0);
 				}
 			
-				if($(document).height() > 1500 && $(document).scrollTop() >= 0 && scrollOffset >= 895 && $(document).scrollTop() > 300){
+				if($(document).height() > 1500 && $(document).scrollTop() >= 0 && scrollOffset >= 1015 && $(document).scrollTop() > 300){
 					$('.wrapper #page_contents .col_1').css("top",$(document).scrollTop()-300);
 				}
 			}else{
 				
-				if($(document).height() > 1200 && $(document).scrollTop() >= 0 && scrollOffset >= 895){
+				if($(document).height() > 1200 && $(document).scrollTop() >= 0 && scrollOffset >= 1015){
 					$('.wrapper #page_contents .col_1').css("top",$(document).scrollTop());
 				}
 
@@ -233,14 +262,18 @@
 			$('#page_contents .region-sidebar-first #block-block-2 .content div[class=tweets-pulled-listing]').after("<br>"+videoContent);
 		}
 		/* -- Sidebar styling ends here -- */
-		
-		/* Match the links of the thumbnail images on News and Events pages with those of the titles */
-		if($('body').hasClass('page-press') || $('body').hasClass('page-events') || $('body').hasClass('page-careers')){
-			$('.views-field-field-image a').each(function(){
-				$(this).attr('href', $(this).parent().parent().parent().find('.views-field-field-url a').attr('href'));
-			});
-		}
-		
+
+        /* -- Home page: title link synchronization with 'Read More' buttons */
+        if($('body').hasClass('page-frontpage')){
+            $('.col_2 .view-latest-event h3.view-latest-event-title a').each(function(){
+                $(this).attr('href', $(this).parent().parent().parent().find('.views-field-field-url').find('a').attr('href'));
+            });
+            $('.col_2 .view-latest-event .views-field-field-image a').each(function(){
+                $(this).attr('href', $(this).parent().parent().parent().find('.views-field-field-url').find('a').attr('href'));
+            });
+        }
+
+
 		/* Remove the 'button' classes from the titles on the News page and Events page */
 		if($('body').hasClass('page-press') || $('body').hasClass('page-events') || $('body').hasClass('page-careers')){
 			$('a[class=button]','body').not('#scrollToTop a').removeClass('button');
@@ -260,46 +293,197 @@
         }
         /* -- Archive view layout in News page ends here -- */
 
+        /* -- Replace the images on Videos page with Youtube thumbnails -- */
+        if($('body').hasClass('page-videos')){
+            $('.item-list .views-field-field-youtube').each(function(){
+                $(this).parent().find('.views-field-field-image').html($(this).html());
+                $($(this),$(this).parent()).remove();
+            });
+        }
+
         /* Enable directly going into the editing mode upon double-clicking on either the title or image of an item in Press and Event pages */
-        if($('body').hasClass('page-press') || $('body').hasClass('page-events') || $('body').hasClass('page-careers')){
-            $('.views-field-field-image').each(function(){
-                $(this).after('<div class="editShortcutContainer"><div class="editShortcut"><img src="http://www.cfe.umich.edu/img/glyphicons_030_pencil.png"></div></div>');
+        if($('body').hasClass('page-press') || $('body').hasClass('page-events') || $('body').hasClass('page-careers') || $('body').hasClass('page-videos')){
+            $('.item-list .views-field-field-image').each(function(){
+                $(this).prepend('<div class="editShortcutContainer"><div class="editShortcut"><img src="http://www.cfe.umich.edu/img/glyphicons_030_pencil.png"></div></div>');
             });
 
-            $('.views-field-field-url').filter(function(index){
-                return ($(this).parent().find('.views-field-field-image').html() == null);
-            }).after('<div class="editShortcutContainer" style="top:81px; left:0;"><div class="editShortcut"><img src="http://www.cfe.umich.edu/img/glyphicons_030_pencil.png"></div></div>');
+            //$('.views-field-field-url').filter(function(index){
+            //    return ($(this).parent().find('.views-field-field-image').html() == null);
+            //}).after('<div class="editShortcutContainer" style="top:81px; left:0;"><div class="editShortcut"><img src="http://www.cfe.umich.edu/img/glyphicons_030_pencil.png"></div></div>');
 
-            $('img','.editShortcut').click(function(){
-                var curLocation = location.href.split('/');
-                if($('.view-id-news .view-display-id-attachment_1 h2, .view-id-events .view-display-id-attachment_1 h2').html() == null){
-                    location.href=$('a',$(this).parent().parent().parent().find('.views-field-view-node')).attr('href')+'?origin='+curLocation[curLocation.length - 1]+'#overlay=node/'+$('.views-field-nid .nodeId', $(this).parent().parent().parent()).text()+'/edit';
+
+
+        }
+        /* -- New Press page layout with additional items displayed -- */
+        if($('body').hasClass('page-press') || $('body').hasClass('page-events') || $('body').hasClass('page-careers') || $('body').hasClass('page-videos')){
+            $('.item-list .views-field-field-image').prepend('<div class="imgShadeContainer"><div class="imgShade"></div></div>')
+            $('.item-list .views-field-field-url').each(function(){
+                $(this).parent().find('.views-field-field-image').append("<div class='views-field-field-url'>"+$(this).html()+"</div>");
+                $($(this),$(this).parent()).remove();
+            });
+            $('.item-list .views-field-field-published').each(function(){
+                $(this).parent().find('.views-field-field-image').append("<div class='views-field-field-published'>"+$(this).html()+"</div>");
+                $($(this),$(this).parent()).remove();
+            });
+            $('.item-list .views-field-field-publication').each(function(){
+                $(this).parent().find('.views-field-field-image').append("<div class='views-field-field-publication'>"+$(this).html()+"</div>");
+                $($(this),$(this).parent()).remove();
+            });
+            $('.item-list .views-field-field-photocredit').each(function(){
+                if($('.photoCredit',$(this)).html() != null){
+                    $(this).parent().find('.views-field-field-image .imgShadeContainer').append("<div class='views-field-field-photocredit'><strong>Photo credit</strong><br>"+$(this).html()+"</div>");
                 }else{
-                    location.href=$('a',$(this).parent().parent().parent().find('.views-field-view-node')).attr('href')+'?origin='+curLocation[curLocation.length - 2]+'&archive='+curLocation[curLocation.length - 1]+'#overlay=node/'+$('.views-field-nid .nodeId', $(this).parent().parent().parent()).text()+'/edit';
+                    $(this).parent().find('.views-field-field-image .imgShadeContainer').append("<div class='views-field-field-photocredit'></div>");
+                }
+                $($(this),$(this).parent()).remove();
+            });
+            $('.item-list .views-field-field-tags').each(function(){
+                $(this).parent().find('.views-field-field-image .photo').after("<div class='views-field-field-tags'>"+$(this).html()+"</div>");
+                $($(this),$(this).parent()).remove();
+            });
+
+            $('.item-list .views-row .editShortcut img').click(function(){
+                var curLocation = location.href.split('/');
+                if($('body').hasClass('page-press-tag') || $('body').hasClass('page-events-tag') || $('body').hasClass('page-careers-tag') || $('body').hasClass('page-videos-tag')){
+                    location.href=$('a',$(this).parent().parent().parent().parent().find('.views-field-view-node')).attr('href')+'?origin='+curLocation[curLocation.length - 3]+'/tag/'+curLocation[curLocation.length - 1]+'#overlay=node/'+$('.views-field-nid .nodeId', $(this).parent().parent().parent().parent()).text()+'/edit';
+                }else{
+                    if($('.view-id-news .view-display-id-attachment_1 h2, .view-id-events .view-display-id-attachment_1 h2').html() == null){
+                        if(curLocation[curLocation.length-1] != ''){
+                            location.href=$('a',$(this).parent().parent().parent().parent().find('.views-field-view-node')).attr('href')+'?origin='+curLocation[curLocation.length - 1]+'#overlay=node/'+$('.views-field-nid .nodeId', $(this).parent().parent().parent().parent()).text()+'/edit';
+                        }else{
+                            location.href=$('a',$(this).parent().parent().parent().parent().find('.views-field-view-node')).attr('href')+'?origin='+curLocation[curLocation.length - 2]+'#overlay=node/'+$('.views-field-nid .nodeId', $(this).parent().parent().parent().parent()).text()+'/edit';
+                        }
+
+                    }else{
+                        location.href=$('a',$(this).parent().parent().parent().parent().find('.views-field-view-node')).attr('href')+'?origin='+curLocation[curLocation.length - 2]+'&archive='+curLocation[curLocation.length - 1]+'#overlay=node/'+$('.views-field-nid .nodeId', $(this).parent().parent().parent().parent()).text()+'/edit';
+                    }
                 }
 
+
             });
+
             $('.views-field-field-url a, .views-field-field-image a').each(function(){
                 var curLocation = location.href.split('/');
 
-                if($('.view-id-news .view-display-id-attachment_1 h2, .view-id-events .view-display-id-attachment_1 h2').html() == null){
-                    $(this).attr('href', $(this).attr('href')+'?origin='+curLocation[curLocation.length - 1]);
-                }else{
+                if($('body').hasClass('page-press-tag') || $('body').hasClass('page-events-tag') || $('body').hasClass('page-careers-tag') || $('body').hasClass('page-videos-tag')){
+                    $(this).attr('href', $(this).attr('href')+'?origin='+curLocation[curLocation.length - 3]+'/tag/'+curLocation[curLocation.length - 1]);
 
-                    $(this).attr('href', $(this).attr('href')+'?origin='+curLocation[curLocation.length - 2]+'&archive='+curLocation[curLocation.length - 1]);
+                }else{
+                    if($('.view-id-news .view-display-id-attachment_1 h2, .view-id-events .view-display-id-attachment_1 h2').html() == null){
+                        if(curLocation[curLocation.length-1] != ''){
+                            $(this).attr('href', $(this).attr('href')+'?origin='+curLocation[curLocation.length - 1]);
+                        }else{
+                            $(this).attr('href', $(this).attr('href')+'?origin='+curLocation[curLocation.length - 2]);
+                        }
+
+                    }else{
+
+                        $(this).attr('href', $(this).attr('href')+'?origin='+curLocation[curLocation.length - 2]+'&archive='+curLocation[curLocation.length - 1]);
+                    }
                 }
+
+
             })
 
+
+            $('.item-list .views-row .views-field-field-image').mouseenter(function(){
+                $('.imgShade', $(this)).hide();
+                $('.views-field-field-url, .views-field-field-published, .views-field-field-publication', $(this)).stop(true,true).fadeOut(300);
+            });
+            $('.item-list .views-row .views-field-field-image').mouseleave(function(){
+                $('.imgShade', $(this)).show();
+                $('.views-field-field-url, .views-field-field-published, .views-field-field-publication', $(this)).stop(true,true).fadeIn(300);
+            });
+
+            // Tag search
+            if($('body').hasClass('page-press-tag') || $('body').hasClass('page-events-tag') || $('body').hasClass('page-careers-tag') || $('body').hasClass('page-videos-tag')){
+                $('.tagItem .item-list li').css('cursor','pointer').click(function(){
+                    location.href = "./"+$(this).text();
+                });
+            }else if($('body').hasClass('page-press')){
+                $('.tagItem .item-list li').css('cursor','pointer').click(function(){
+                    var curLocation = location.href.split('/');
+                    if(curLocation[curLocation.length-1] == ''){
+                        location.href = "tag/"+$(this).text();
+                    }else{
+                        location.href="press/tag/"+$(this).text();
+                    }
+
+                });
+            }else if($('body').hasClass('page-events')){
+                $('.tagItem .item-list li').css('cursor','pointer').click(function(){
+                    var curLocation = location.href.split('/');
+                    if(curLocation[curLocation.length-1] == ''){
+                        location.href = "tag/"+$(this).text();
+                    }else{
+                        location.href="events/tag/"+$(this).text();
+                    }
+
+                });
+            }else if($('body').hasClass('page-careers')){
+                $('.tagItem .item-list li').css('cursor','pointer').click(function(){
+                    var curLocation = location.href.split('/');
+                    if(curLocation[curLocation.length-1] == ''){
+                        location.href = "tag/"+$(this).text();
+                    }else{
+                        location.href="careers/tag/"+$(this).text();
+                    }
+
+                });
+            }else if($('body').hasClass('page-videos')){
+                $('.tagItem .item-list li').css('cursor','pointer').click(function(){
+                    var curLocation = location.href.split('/');
+                    if(curLocation[curLocation.length-1] == ''){
+                        location.href = "tag/"+$(this).text();
+                    }else{
+                        location.href="videos/tag/"+$(this).text();
+                    }
+
+                });
+            }
+
+
+        }
+
+        /* Match the links of the thumbnail images on News, Eventsm, Careers and Videos pages with those of the titles */
+        if($('body').hasClass('page-press') || $('body').hasClass('page-events') || $('body').hasClass('page-careers') || $('body').hasClass('page-videos')){
+            $('.views-field-field-image .photo a').each(function(){
+                $(this).attr('href', $(this).parent().parent().find('.views-field-field-url a').attr('href'));
+            });
+            $('.item-list .views-field-field-url, .item-list .views-field-field-publication, .item-list .views-field-field-published').css('cursor','pointer').click(function(){
+                location.href = $(this).parent().find('.views-field-field-url').find('a').attr('href');
+            });
+            $('.item-list .views-field-field-photocredit').css('cursor','pointer').click(function(){
+                location.href = $(this).parent().parent().find('.views-field-field-url').find('a').attr('href');
+            });
+            $('.views-field-field-image .photo img').css('cursor','pointer').click(function(){
+                location.href=$(this).parent().parent().parent().find('.views-field-field-url a').attr('href');
+            });
         }
 
         /* -- Back-end stuff for Back Navigation in People pages -- */
-        if($('body').hasClass('page-staff') || $('body').hasClass('page-interns') || $('body').hasClass('page-board') || $('body').hasClass('page-faculty-affiliates')){
+        if($('body').hasClass('page-staff') || $('body').hasClass('page-interns') || $('body').hasClass('page-board') || $('body').hasClass('page-faculty-affiliates') || $('body').hasClass('page-ehour') || $('body').hasClass('page-ehour-archive') || $('body').hasClass('page-classes')){
             var curLocation = location.href.split('/');
-            $('.views-field-field-image a, .views-field-title .imgHeader a').each(function(){
-                $(this).attr('href', $(this).attr('href')+'?origin='+curLocation[curLocation.length -1]);
+            $('.views-field-field-image a, .views-field-title a').not('.scrollToTarget').each(function(){
+                if(curLocation[curLocation.length-1] != ''){
+                    $(this).attr('href', $(this).attr('href')+'?origin='+curLocation[curLocation.length -1]);
+                }else{
+                    $(this).attr('href', $(this).attr('href')+'?origin='+curLocation[curLocation.length -2]);
+                }
+
             });
         }
-			
+
+        /* -- Back button on tag-search results page -- */
+        if($('body').hasClass('page-press-tag')){
+            $('h2[id=page-title]').after('&nbsp;&nbsp;<a class="backBtn3" href="../../press">Back to List</a>');
+        }else if($('body').hasClass('page-events-tag')){
+            $('h2[id=page-title]').after('&nbsp;&nbsp;<a class="backBtn3" href="../../events">Back to List</a>');
+        }else if($('body').hasClass('page-careers-tag')){
+            $('h2[id=page-title]').after('&nbsp;&nbsp;<a class="backBtn3" href="../../careers">Back to List</a>');
+        }else if($('body').hasClass('page-videos-tag')){
+            $('h2[id=page-title]').after('&nbsp;&nbsp;<a class="backBtn3" href="../../videos">Back to List</a>');
+        }
 
 		/* -- Article(External) view styling starts here -- */
 		if($('body').hasClass('node-type-article-external-')){
@@ -576,31 +760,52 @@
             var originURL = getParameterByName('origin');
             $('h2[id=page-title]').after('&nbsp;&nbsp;<a class="backBtn">Back to List</a>');
 
-            if(document.referrer.indexOf('#') == -1){
-                var str = document.referrer.split('/');
-
-
-                if(getParameterByName('origin') != null){
-                    if(getParameterByName('archive') != null){
-                        $('.backBtn').attr('href', root + getParameterByName('origin') + '/' + getParameterByName('archive'));
-                    }else{
-                        $('.backBtn').attr('href', root + getParameterByName('origin'));
-                    }
-
-                }else{
+            var referrer = document.referrer;
+            if(referrer.indexOf('press') != -1 || referrer.indexOf('careers') != -1 || referrer.indexOf('events') != -1 || referrer.indexOf('videos') != -1){
+                if(document.referrer.indexOf('#') == -1){
                     var str = document.referrer.split('/');
-                    var idxOfOrigin = str[str.length-1].indexOf('?origin=');
-                    var idxOfArchive = str[str.length-1].indexOf('&archive=');
-                    if(idxOfArchive != -1){
-                        $('.backBtn').attr('href', root + str[str.length-1].substr(idxOfOrigin+8, idxOfArchive - idxOfOrigin - 8) + '/' + str[str.length-1].substr(idxOfArchive+9));
+
+
+                    if(getParameterByName('origin') != null){
+                        if(getParameterByName('archive') != null){
+                            $('.backBtn').attr('href', root + getParameterByName('origin') + '/' + getParameterByName('archive'));
+                        }else{
+                            $('.backBtn').attr('href', root + getParameterByName('origin'));
+                        }
 
                     }else{
-                        $('.backBtn').attr('href', root + str[str.length-1].substr(idxOfOrigin+8));
-                    }
-                }
+                        var checker = document.referrer.split('/');
 
-                //$('.backBtn').attr('href', root + document.referrer);
+                        if(checker[checker.length - 1].indexOf('?origin')!= -1){
+                            var str = document.referrer.split('/');
+                            var idxOfOrigin = str[str.length-1].indexOf('?origin=');
+                            var idxOfArchive = str[str.length-1].indexOf('&archive=');
+
+                            if(idxOfArchive != -1){
+                                $('.backBtn').attr('href', root + str[str.length-1].substr(idxOfOrigin+8, idxOfArchive - idxOfOrigin - 8) + '/' + str[str.length-1].substr(idxOfArchive+9));
+
+                            }else{
+                                $('.backBtn').attr('href', root + str[str.length-1].substr(idxOfOrigin+8));
+                            }
+                        }else{
+                            var str = document.referrer.split('/');
+                            //var idxOfOrigin = checker[checker.length - 3].indexOf('?');
+                            //var searchTerm = checker[checker.length-3].substr(0, idxOfOrigin);
+                            //alert(checker[checker.length - 3]);
+
+                            var pathRevertTo = str[str.length-3].indexOf('origin=');
+                            $('.backBtn').attr('href', root + str[str.length-3].substr(pathRevertTo+7)+'/tag/'+str[str.length-1]);
+                        }
+
+                    }
+
+                    //$('.backBtn').attr('href', root + document.referrer);
+                }
+            }else{
+                $('.backBtn').attr('href', document.referrer);
             }
+
+
             /*
             else{ // when an article has been edited
                 var str = document.referrer.split('/');
