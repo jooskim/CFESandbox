@@ -15,7 +15,8 @@
     <![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,700,300italic|Yanone+Kaffeesatz:300,200' rel='stylesheet' type='text/css'>
 	<?php print $styles; ?>
-	<?php print $scripts; ?>
+    <?php print $scripts; ?>
+
 </head>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->

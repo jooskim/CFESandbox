@@ -1,0 +1,30 @@
+<?php
+
+$connect;
+
+function DBconnect(){
+    global $connect;
+    $connect = mysql_connect('webapps-db.web.itd.umich.edu','cfe','cfe2008web');
+    if($connect){
+        if(!mysql_select_db('cfe')){
+            die("DB selection error!");
+        }else{
+        }
+    }else{
+        die("DB connection error!");
+    }
+}
+
+function getList(){
+    global $connect;
+    $toJSON = array();
+    $query = "SELECT * FROM cfe_slideshow WHERE 1";
+    $result = mysql_query($query, $connect);
+    while($data = mysql_fetch_array($result)){
+        array_push($toJSON, $data);
+        echo($data[0]."<br>");
+    }
+    //$JSONStr = json_encode($toJSON);
+    //echo("<script>alert('".$JSONStr."');</script>");
+}
+?>

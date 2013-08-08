@@ -1,0 +1,3 @@
+name = Slideshow Administrator Panel
+description = Provides an easy way to manage the contents of the slideshow on the home page.
+core = 7.x

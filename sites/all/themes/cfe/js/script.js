@@ -140,7 +140,7 @@
 		/* -- Sidebar styling starts here -- */
 		
 		// Strap the news/event title and published date sections together as well as give it a link
-		$('#block-views-latest-event-block-1 .newsItem, #block-views-latest-event-block-2 .newsItem').each(function(){
+		$('#block-views-latest-event-block-1 .newsItem, #block-views-latest-event-block-2 .newsItem, #block-views-latest-event-block-4 .newsItem').each(function(){
             var origin;
             if($('body').hasClass('page-press') || $('body').hasClass('page-press-tag')){
                 origin = '?origin=press';
@@ -156,7 +156,7 @@
             $('.views-field-title a',$(this)).attr('href', $('.views-field-title a',$(this)).attr('href')+origin);
         });
 
-        $('#block-views-latest-event-block-1 .newsItem, #block-views-latest-event-block-2 .newsItem').css('cursor','pointer').click(function(){
+        $('#block-views-latest-event-block-1 .newsItem, #block-views-latest-event-block-2 .newsItem, #block-views-latest-event-block-4 .newsItem').css('cursor','pointer').click(function(){
             var origin;
             if($('body').hasClass('page-press') || $('body').hasClass('page-press-tag')){
                 origin = '?origin=press';
@@ -184,7 +184,7 @@
 		$('#block-views-latest-event-block-3 .content .views-field-field-published').hide();
 		
 		// Highlight each item upon hovering
-		$('#block-views-latest-event-block-1 .newsItem, #block-views-latest-event-block-2 .newsItem').hover(function(){
+		$('#block-views-latest-event-block-1 .newsItem, #block-views-latest-event-block-2 .newsItem, #block-views-latest-event-block-4 .newsItem').hover(function(){
 			$('a,span',this).css('color','#00274c');
 			$(this).css({'background-color': '#ffcb05', 'text-shadow': '1px 1px 2px #ffffff'});
 		},function(){
@@ -260,8 +260,17 @@
 			var videoContent = "<div class='sidebarMargin'>"+$('.view-latest-event .attachment-after .view-display-id-attachment_2').html()+"</div>";
 			$('.view-latest-event .attachment-after .view-display-id-attachment_2').empty();
 			$('#page_contents .region-sidebar-first #block-block-2 .content div[class=tweets-pulled-listing]').after("<br>"+videoContent);
+
+            // On the home page, put the headers under Events and Careers items
+            $('.col_2 .view-display-id-page_1 .view-display-id-attachment_1 .newsItem').each(function(){
+                $('.views-field-title',$(this)).after("<div class='views-field views-field-field-publication'><div class='field-content'>Event</div></div></div>");
+            });
+
+            $('.col_2 .view-display-id-page_1 .view-display-id-attachment_3 .newsItem').each(function(){
+                $('.views-field-title',$(this)).after("<div class='views-field views-field-field-publication'><div class='field-content'>Job Opening</div></div></div>");
+            });
+
 		}
-		/* -- Sidebar styling ends here -- */
 
         /* -- Home page: title link synchronization with 'Read More' buttons */
         if($('body').hasClass('page-frontpage')){
@@ -672,6 +681,82 @@
 		$('.item-list li').before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
 		
 	}
+
+     /* -- Classes page UL/LI styling -- */
+     if($('body').hasClass('page-classes')){
+         $('.item-list li.views-row').each(function(){
+             $('div.views-field-title',$(this)).after("<div class='editBtnContainer' style='display:none'><span class='editBtn'>Edit</span></div>")
+             $('.views-label',$(this)).css('font-weight','bold');
+
+             var appendDetails = "<div class='details' style='display:none;'>"+$('div.views-field-field-credit',$(this)).html()+$('div.views-field-field-grade',$(this)).html();
+             if($('div.views-field-field-semester', $(this)).html() != null){
+                 appendDetails += $('div.views-field-field-semester', $(this)).html();
+             }
+             if($('div.views-field-field-prereq', $(this)).html() != null){
+                 appendDetails += $('div.views-field-field-prereq', $(this)).html();
+             }
+             if($('div.views-field-field-prof', $(this)).html() != null){
+                 $('div.views-field-field-prof a', $(this)).addClass('bottomDashed');
+                 appendDetails += $('div.views-field-field-prof', $(this)).html();
+             }
+             if($('div.views-fielf-field-syllabus', $(this)).html() != null){
+                 appendDetails += $('div.views-field-field-syllabus', $(this)).html();
+             }
+             appendDetails += $('div.views-field-body').html();
+             appendDetails += "</div>";
+
+             $(this).after(appendDetails);
+
+
+             $(this).next('div').prepend($('.views-field-field-image',$(this)).html());
+             if($('.floatRight img', $(this).next('div')).html() != null){
+
+             }else{
+                 //$('.floatRight',$(this).next('div')).remove();
+             }
+             $('div.views-field-field-image',$(this)).remove();
+             $('div.views-field-body',$(this)).remove();
+             $('div.views-field-field-grade, .views-field-field-semester, .views-field-field-credit, .views-field-field-prereq, .views-field-field-prof, .views-field-field-syllabus',$(this)).remove();
+
+         });
+
+         $('.editBtn').each(function(){
+             var articleURL = $(this).parent().parent().find('.views-field-title').find('a').attr('href');
+             $(this).attr('data-link',articleURL);
+             $(this).click(function(){
+                 location.href=$(this).attr('data-link')+'#overlay=node/'+$(this).parent().parent().find('.views-field-nid .nodeId').text()+'/edit';
+             });
+             $(this).parent().parent().find('.views-field-title').find('a').css('font-weight','normal').removeAttr('href');
+         });
+
+
+         $('.item-list ul').not('.courseDetail ul').css('margin-left','10px');
+         $('.item-list li').not('.courseDetail li').css({'font-weight':'normal','cursor':'pointer','margin':'0','list-style':'none','display':'inline-block','width':'96%','margin-bottom':'5px','padding-top':'5px','background-color':'#f3f3f3','padding-left':'10px','padding-right':'10px','padding-bottom':'7px'});
+         $('.item-list li').not('.courseDetail li').click(function(){
+
+             //location.href = $('a',$(this)).attr('href');
+             var contentContainer = $(this).next('div');
+             if($(contentContainer).css('display') == 'none'){
+                 $(contentContainer).slideDown('fast');
+             }else{
+                 if($('.col_2',$('body')).height()<1315){
+                     $('.wrapper #page_contents .col_1').css("top",0);
+                 }
+                 $(contentContainer).slideUp('fast');
+             }
+
+         });
+
+         $('.item-list li').not('.courseDetail li').hover(function(){
+             $(this).css('background-color','#ffcb05');
+         },function(){
+             $(this).css('background-color','#f3f3f3');
+         });
+         $('.item-list li span.views-field-field-region').not('.courseDetail li span.views-field-field-region').css({'float':'right','font-weight':'100','font-style':'italic','font-size':'14px','color':'#666666'});
+         $('.item-list li').not('.courseDetail li').before('<li style="margin: 0; list-style: none; height: 20px; margin-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;display:inline-block; width: 3px; background-color: #00274c;">&nbsp;</li>');
+
+
+     }
         /* -- Student Groups pages UL/LI styling -- */
         if($('body').hasClass('page-student-groups')){
 
@@ -697,8 +782,10 @@
                 if($(contentContainer).css('display') == 'none'){
                     $(contentContainer).slideDown('fast');
                 }else{
+                    if($('.col_2',$('body')).height()<1315){
+                        $('.wrapper #page_contents .col_1').css("top",0);
+                    }
                     $(contentContainer).slideUp('fast');
-
                 }
 
             });
@@ -756,7 +843,7 @@
         }
 
         /* -- Back button for multi-layered pages -- */
-        if($('body').hasClass('node-type-person') || $('body').hasClass('node-type-article') || $('body').hasClass('node-type-article-external-') || $('body').hasClass('node-type-entr407-recordings') || $('body').hasClass('node-type-courses')){
+        if($('body').hasClass('node-type-article') || $('body').hasClass('node-type-article-external-')){
             var originURL = getParameterByName('origin');
             $('h2[id=page-title]').after('&nbsp;&nbsp;<a class="backBtn">Back to List</a>');
 
@@ -819,6 +906,15 @@
                 }
             }
             */
+        }else if($('body').hasClass('node-type-person') || $('body').hasClass('node-type-courses') || $('body').hasClass('node-type-entr407-recordings')){
+            $('h2[id=page-title]').after('&nbsp;&nbsp;<a class="backBtn">Back to List</a>');
+            $('.backBtn', $(this)).click(function(){
+                if(document.referrer.indexOf('?origin=') != -1){
+                    location.href = '/'+document.referrer.substr(document.referrer.indexOf('?origin=')+8);
+                }else{
+                    location.href = document.referrer;
+                }
+            });
         }
 
         /* -- Back button for pages that have an archive section -- */
@@ -827,7 +923,16 @@
             $('.view-id-news .view-display-id-attachment_1 h2, .view-id-events .view-display-id-attachment_1 h2').after('&nbsp;&nbsp;<a class="backBtn2">Back to List</a>');
             $('.backBtn2').attr('href', root + curLocation[curLocation.length - 2]);
         }
+
+        /* -- slideshow administrative panel -- */
+        if($('body').hasClass('page-frontpage')){
+            $('#ssAdmin').click(function(){
+                var popupAdmin = window.open ("sshowadmin.php", "popup", "width=1200, height=600");
+            });
+        }
 	
 	}); // ready
+
+
 	
 }(jQuery));

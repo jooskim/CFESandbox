@@ -31,6 +31,12 @@
 					}
 				?>
 				</ul>
+                <?php
+                global $user;
+                if($user->uid != 0){
+                    echo ('<div id="ssAdmin"><input type="hidden" name="tokenForSSAdmin" id="tokenForSSAdmin" value='.$user->uid.'></div>');
+                }
+                ?>
 			</div>
 
 			<!-- Slideshow Controls: Start -->

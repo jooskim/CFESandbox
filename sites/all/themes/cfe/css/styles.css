@@ -495,6 +495,9 @@ header {
 #google-appliance-block-form input[type="submit"] {
 	display: none;
 }
+.node-type-person .field-name-field-affiliation {
+    display: none;
+}
 /* Footer Styles */
 footer {
 	display: block;
@@ -660,6 +663,21 @@ footer {
 	display: block;
 	float: right;
 	margin-top: 20px;
+}
+#slideshow_photos #ssAdmin {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #ffb515;
+    background-image: url(http://cfe.umich.edu/img/glyphicons_030_pencil.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 5px;
+    cursor: pointer;
+    float: left;
+    top: 22px;
+    left: 1px;
+    z-index: 95;
 }
 #slideshow_controls {
 	position: absolute;
@@ -872,7 +890,8 @@ body.page-node p {
     margin-bottom: 0px;
 }
 #block-views-latest-event-block-1 .newsItem,
-#block-views-latest-event-block-2 .newsItem {
+#block-views-latest-event-block-2 .newsItem,
+#block-views-latest-event-block-4 .newsItem {
 	margin-top: 6px;
 	background-color: #024b96;
 	width: 240px;
@@ -893,19 +912,20 @@ span.view-latest-event-title a {
 	position: relative;
 	width: 210px;
 
-	padding-top: 15px;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-top: 11px;
+	padding-left: 11px;
+	padding-right: 11px;
 	line-height: 15px;
 }
 #block-views-latest-event-block-1 .newsItem .views-field-field-published,
-#block-views-latest-event-block-2 .newsItem .views-field-field-published {
+#block-views-latest-event-block-2 .newsItem .views-field-field-published,
+#block-views-latest-event-block-4 .newsItem .views-field-field-published {
 	position: relative;
 	width: 210px;
 
-	padding-bottom: 15px;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-bottom: 11px;
+	padding-left: 11px;
+	padding-right: 11px;
 	font-size: 0.8em;
 	color: white;
 }
@@ -941,10 +961,10 @@ span.view-latest-event-title a {
 	width: 210px;
 	background-color: #024b96;
 	text-shadow: 1px 1px 2px #333333;
-	padding-left: 15px;
-	padding-right: 15px;
-	padding-bottom: 15px;
-	padding-top: 15px;
+	padding-left: 11px;
+	padding-right: 19px;
+	padding-bottom: 11px;
+	padding-top: 11px;
     behavior: url(http://www.cfe.umich.edu/sandbox/sites/all/themes/cfe/js/PIE-1/PIE.htc);
 }
 
@@ -966,7 +986,7 @@ span.view-latest-event-title a {
 	width: 210px;
 
 	padding-bottom: 15px;
-	padding-left: 15px;
+	padding-left: 20px;
 	padding-right: 15px;
 	font-size: 0.8em;
 	color: white;
@@ -1324,6 +1344,24 @@ a.scrollToTarget {
 .views-field-field-syllabus .field-content a:active {
 	color: #0371E2;
 	border-bottom: 1px dashed #0371E2;
+}
+.editBtnContainer {
+    float: right;
+    position: relative;
+    width: 0;
+    height: 0;
+}
+.editBtn {
+    background-color: #00274c;
+    padding: 6px;
+    position: relative;
+    top: -18px;
+    right: 28px;
+    color: #fff;
+
+}
+.view-filters {
+    display: none;
 }
 /* scrollToTop layer */
 #page_contents .col_1 #scrollToTop {
